@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol -->
+<html class="cye-disabled cye-nm" lang="en"><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="object" property="og:type">
+<meta content="GitLab" property="og:site_name">
+<meta content="Mesh protocol · Wiki · BlackEdder / painlessMesh" property="og:title">
+<meta content="ESP8266 based mesh. Based on https://github.com/Coopdis/easyMesh" property="og:description">
+<meta content="https://gitlab.com/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="og:image">
+<meta content="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol" property="og:url">
+<meta content="summary" property="twitter:card">
+<meta content="Mesh protocol · Wiki · BlackEdder / painlessMesh" property="twitter:title">
+<meta content="ESP8266 based mesh. Based on https://github.com/Coopdis/easyMesh" property="twitter:description">
+<meta content="https://gitlab.com/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="twitter:image">
+
+<title>Mesh protocol · Wiki · BlackEdder / painlessMesh · GitLab</title>
+<meta content="ESP8266 based mesh. Based on https://github.com/Coopdis/easyMesh" name="description">
+<link rel="shortcut icon" type="image/x-icon" href="https://gitlab.com/assets/favicon-075eba76312e8421991a0c1f89a89ee81678bcde72319dd3e8047e2a47cd3a42.ico" id="favicon">
+<link rel="stylesheet" media="all" href="./Mesh protocol_files/application-bf562c36db4b06702ba455fb509cdac15b6f7b5797112e8a3784394849c9bb3b.css">
+<link rel="stylesheet" media="print" href="./Mesh protocol_files/print-87b4ace0db1f79d91e4fe6e74435b66b71d70fee57ffbb72d0fade17374fcc6b.css">
+
+
+<script type="text/javascript" async="" defer="" src="./Mesh protocol_files/piwik.js.download"></script><script>
+//<![CDATA[
+window.gon={};gon.api_version="v4";gon.default_avatar_url="https:\/\/gitlab.com\/assets\/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png";gon.max_file_size=10;gon.asset_host=null;gon.relative_url_root="";gon.shortcuts_path="\/help\/shortcuts";gon.user_color_scheme="white";gon.katex_css_url="\/assets\/katex-e46cafe9c3fa73920a7c2c063ee8bb0613e0cf85fd96a3aea25f8419c4bfcfba.css";gon.katex_js_url="\/assets\/katex-04bcf56379fcda0ee7c7a63f71d0fc15ffd2e014d017cd9d51fd6554dfccf40a.js";gon.sentry_dsn="https:\/\/526a2f38a53d44e3a8e69bfa001d1e8b@sentry.gitlap.com\/15";gon.gitlab_url="https:\/\/gitlab.com";gon.revision="44d109d";gon.gitlab_logo="\/assets\/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png";
+//]]>
+</script><style id="nightModeStyle">
+html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
+ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) #cye-workaround-body {-webkit-filter:contrast(91%) brightness(84%) invert(1);}</style><style id="cyebody">html.cye-enabled.cye-lm body{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyediv">html.cye-enabled.cye-lm div{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyetable">html.cye-enabled.cye-lm th{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm td{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyetextInput">html.cye-enabled.cye-lm input[type=text]{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm textarea{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeselect">html.cye-enabled.cye-lm select{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeul">html.cye-enabled.cye-lm ul{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeChangeByClick">html.cye-enabled.cye-lm .cye-lm-tag,html.cye-enabled.cye-lm.cye-lm-tag{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style>
+<script src="./Mesh protocol_files/runtime.1e4f1a3da7dfa5700156.bundle.js.download"></script>
+<script src="./Mesh protocol_files/common.a208e8b828f4e7f4759b.bundle.js.download"></script>
+<script src="./Mesh protocol_files/locale.3db4c8eef74bbad2de0a.bundle.js.download"></script>
+<script src="./Mesh protocol_files/main.7ca17a24789acfd5a781.bundle.js.download"></script>
+<script src="./Mesh protocol_files/raven.61375d9168165e89d174.bundle.js.download"></script>
+
+
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="ekLlbQnBCS/hwlAuO2HGhjuauF3OPg2AHth1QUDkF2D7S11jxBrktTRfftOBUc0QTzgJH9lw4Q7+34ARHQ5Baw==">
+<meta content="origin-when-cross-origin" name="referrer">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<meta content="#474D57" name="theme-color">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.com/assets/touch-icon-iphone-5a9cee0e8a51212e70b90c87c12f382c428870c0ff67d1eb034d884b78d2dae7.png">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.com/assets/touch-icon-ipad-a6eec6aeb9da138e507593b464fdac213047e49d3093fc30e90d9a995df83ba3.png" sizes="76x76">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.com/assets/touch-icon-iphone-retina-72e2aadf86513a56e050e7f0f2355deaa19cc17ed97bbe5147847f2748e5a3e3.png" sizes="120x120">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.com/assets/touch-icon-ipad-retina-8ebe416f5313483d9c1bc772b5bbe03ecad52a54eba443e5215a22caed2a16a2.png" sizes="152x152">
+<link color="rgb(226, 67, 41)" href="https://gitlab.com/assets/logo-d36b5212042cebc89b96df4bf6ac24e43db316143e89926c0db839ff694d2de4.svg" rel="mask-icon">
+<meta content="/assets/msapplication-tile-1196ec67452f618d39cdd85e2e3a542f76574c071051ae7effbfde01710eb17d.png" name="msapplication-TileImage">
+<meta content="#30353E" name="msapplication-TileColor">
+
+
+<!-- Piwik -->
+<script>
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//piwik.gitlab.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>&lt;p&gt;&lt;img src="//piwik.gitlab.com/piwik.php?idsite=1" style="border:0;" alt="" /&gt;&lt;/p&gt;</noscript>
+<!-- End Piwik Code -->
+
+
+<link rel="stylesheet" type="text/css" href="./Mesh protocol_files/katex-e46cafe9c3fa73920a7c2c063ee8bb0613e0cf85fd96a3aea25f8419c4bfcfba.css"></head><div id="cyeBlackMaskLayer" style="background-color: rgb(19, 19, 19); position: fixed; width: 1980px; height: 1080px; z-index: -2147483648;"></div>
+
+<body class="" data-group="" data-page="projects:wikis:show" data-project="painlessMesh">
+
+
+<header class="navbar navbar-gitlab with-horizontal-nav">
+<div class="navbar-border" style="opacity: 0;"></div>
+<a class="sr-only gl-accessibility" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#content-body" tabindex="1">Skip to content</a>
+<div class="container-fluid">
+<div class="header-content">
+<div class="dropdown global-dropdown">
+<button class="global-dropdown-toggle" data-toggle="dropdown" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i aria-hidden="true" data-hidden="true" class="fa fa-bars"></i>
+</button>
+<div class="dropdown-menu-nav global-dropdown-menu">
+<ul>
+<li class="home"><a title="Projects" class="dashboard-shortcuts-projects" href="https://gitlab.com/explore"><div class="shortcut-mappings">
+<div class="key">
+<i aria-label="hidden" class="fa fa-arrow-up"></i>
+P
+</div>
+</div>
+<span>
+Projects
+</span>
+</a></li><li class=""><a title="Groups" class="dashboard-shortcuts-groups" href="https://gitlab.com/explore/groups"><div class="shortcut-mappings">
+<div class="key">
+<i aria-label="hidden" class="fa fa-arrow-up"></i>
+G
+</div>
+</div>
+<span>
+Groups
+</span>
+</a></li><li class=""><a title="Snippets" class="dashboard-shortcuts-snippets" href="https://gitlab.com/explore/snippets"><div class="shortcut-mappings">
+<div class="key">
+<i aria-label="hidden" class="fa fa-arrow-up"></i>
+S
+</div>
+</div>
+<span>
+Snippets
+</span>
+</a></li><li class="divider"></li>
+<li class=""><a title="Help" href="https://gitlab.com/help"><span>
+Help
+</span>
+</a></li></ul>
+
+</div>
+</div>
+<div class="header-logo">
+<a class="home" title="Dashboard" id="logo" href="https://gitlab.com/"><svg width="28" height="28" class="tanuki-logo" viewBox="0 0 36 36">
+  <path class="tanuki-shape tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
+  <path class="tanuki-shape tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
+  <path class="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
+  <path class="tanuki-shape tanuki-left-eye" fill="#fc6d26" d="M18,34.38 11.38,14 2,14 6,25Z"></path>
+  <path class="tanuki-shape tanuki-right-eye" fill="#fc6d26" d="M18,34.38 24.62,14 34,14 30,25Z"></path>
+  <path class="tanuki-shape tanuki-left-cheek" fill="#fca326" d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
+  <path class="tanuki-shape tanuki-right-cheek" fill="#fca326" d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
+</svg>
+
+</a></div>
+<div class="title-container">
+<h1 class="title"><a href="https://gitlab.com/BlackEdder">BlackEdder</a> / <a class="project-item-select-holder" href="https://gitlab.com/BlackEdder/painlessMesh">painlessMesh</a></h1>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="hidden-sm hidden-xs">
+<div class="has-location-badge search search-form">
+<form class="navbar-form" action="https://gitlab.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><div class="search-input-container">
+<div class="location-badge">This project</div>
+<div class="search-input-wrap">
+<div class="dropdown" data-url="/search/autocomplete">
+<input type="search" name="search" id="search" placeholder="Search" class="search-input dropdown-menu-toggle no-outline js-search-dashboard-options disabled" spellcheck="false" tabindex="1" autocomplete="off" data-toggle="dropdown" data-issues-path="https://gitlab.com/dashboard/issues" data-mr-path="https://gitlab.com/dashboard/merge_requests" aria-label="Search" value="">
+<div class="dropdown-menu dropdown-select">
+<div class="dropdown-content"><ul>
+<li>
+<a class="is-focused dropdown-menu-empty-link">
+Loading...
+</a>
+</li>
+</ul>
+</div><div class="dropdown-loading"><i aria-hidden="true" data-hidden="true" class="fa fa-spinner fa-spin"></i></div>
+</div>
+<i class="search-icon"></i>
+<i class="clear-icon js-clear-input"></i>
+</div>
+</div>
+</div>
+<input type="hidden" name="group_id" id="group_id" class="js-search-group-options">
+<input type="hidden" name="project_id" id="search_project_id" value="1977851" class="js-search-project-options" data-project-path="painlessMesh" data-name="painlessMesh" data-issues-path="/BlackEdder/painlessMesh/issues" data-mr-path="/BlackEdder/painlessMesh/merge_requests">
+<input type="hidden" name="scope" id="scope" value="wiki_blobs">
+<input type="hidden" name="repository_ref" id="repository_ref">
+
+<div class="search-autocomplete-opts hide" data-autocomplete-path="/search/autocomplete" data-autocomplete-project-id="1977851"></div>
+</form></div>
+
+</li>
+<li class="visible-sm-inline-block visible-xs-inline-block">
+<a title="Search" aria-label="Search" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://gitlab.com/search"><i aria-hidden="true" data-hidden="true" class="fa fa-search"></i>
+</a></li>
+<li>
+<div>
+<a class="btn btn-sign-in btn-success" href="https://gitlab.com/users/sign_in?redirect_to_referer=yes">Sign in</a>
+</div>
+</li>
+</ul>
+</div>
+<button class="navbar-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i aria-hidden="true" data-hidden="true" class="fa fa-ellipsis-v"></i>
+</button>
+<div class="js-dropdown-menu-projects">
+<div class="dropdown-menu dropdown-select dropdown-menu-projects">
+<div class="dropdown-title"><span>Go to a project</span><button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button"><i aria-hidden="true" data-hidden="true" class="fa fa-times dropdown-menu-close-icon"></i></button></div>
+<div class="dropdown-input"><input type="search" id="" class="dropdown-input-field" placeholder="Search your projects" autocomplete="off" value=""><i aria-hidden="true" data-hidden="true" class="fa fa-search dropdown-input-search"></i><i role="button" aria-hidden="true" data-hidden="true" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i></div>
+<div class="dropdown-content"></div>
+<div class="dropdown-loading"><i aria-hidden="true" data-hidden="true" class="fa fa-spinner fa-spin"></i></div>
+</div>
+</div>
+
+</div>
+</div>
+</header>
+
+<script>
+  var findFileURL = "/BlackEdder/painlessMesh/find_file/master";
+</script>
+
+<div class="page-gutter page-with-sidebar right-sidebar-expanded wiki-sidebar">
+<div class="layout-nav">
+<div class="container-fluid">
+<div class="scrolling-tabs-container">
+<div class="fade-left">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-left"></i>
+</div>
+<div class="fade-right">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-right"></i>
+</div>
+<ul class="nav-links scrolling-tabs is-initialized">
+<li class="home"><a title="Project" class="shortcuts-project" href="https://gitlab.com/BlackEdder/painlessMesh"><span>
+Project
+</span>
+</a></li><li class=""><a title="Repository" class="shortcuts-tree" href="https://gitlab.com/BlackEdder/painlessMesh/tree/master"><span>
+Repository
+</span>
+</a></li><li class=""><a title="Container Registry" class="shortcuts-container-registry" href="https://gitlab.com/BlackEdder/painlessMesh/container_registry"><span>
+Registry
+</span>
+</a></li><li class=""><a title="Issues" class="shortcuts-issues" href="https://gitlab.com/BlackEdder/painlessMesh/issues"><span>
+Issues
+<span class="badge count issue_counter">13</span>
+</span>
+</a></li><li class=""><a title="Merge Requests" class="shortcuts-merge_requests" href="https://gitlab.com/BlackEdder/painlessMesh/merge_requests"><span>
+Merge Requests
+<span class="badge count merge_counter js-merge-counter">3</span>
+</span>
+</a></li><li class=""><a title="Pipelines" class="shortcuts-pipelines" href="https://gitlab.com/BlackEdder/painlessMesh/pipelines"><span>
+Pipelines
+</span>
+</a></li><li class="active"><a title="Wiki" class="shortcuts-wiki" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home"><span>
+Wiki
+</span>
+</a></li><li class=""><a title="Settings" class="shortcuts-tree" href="https://gitlab.com/BlackEdder/painlessMesh/settings/members"><span>
+Settings
+</span>
+</a></li><li class="hidden">
+<a title="Activity" class="shortcuts-project-activity" href="https://gitlab.com/BlackEdder/painlessMesh/activity"><span>
+Activity
+</span>
+</a></li>
+<li class="hidden">
+<a title="Network" class="shortcuts-network" href="https://gitlab.com/BlackEdder/painlessMesh/network/master">Graph
+</a></li>
+<li class="hidden">
+<a title="Charts" class="shortcuts-repository-charts" href="https://gitlab.com/BlackEdder/painlessMesh/graphs/master/charts">Charts
+</a></li>
+<li class="hidden">
+<a class="shortcuts-new-issue" href="https://gitlab.com/BlackEdder/painlessMesh/issues/new">Create a new issue
+</a></li>
+<li class="hidden">
+<a title="Jobs" class="shortcuts-builds" href="https://gitlab.com/BlackEdder/painlessMesh/-/jobs">Jobs
+</a></li>
+<li class="hidden">
+<a title="Commits" class="shortcuts-commits" href="https://gitlab.com/BlackEdder/painlessMesh/commits/master">Commits
+</a></li>
+<li class="hidden">
+<a title="Issue Boards" class="shortcuts-issue-boards" href="https://gitlab.com/BlackEdder/painlessMesh/boards">Issue Boards</a>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+<div class="content-wrapper page-with-layout-nav">
+<div class="alert-wrapper">
+
+
+<div class="flash-container flash-container-page">
+</div>
+
+
+</div>
+<div class=" ">
+<div class="content" id="content-body">
+<div class="container-fluid container-limited">
+<div class="wiki-page-header has-sidebar-toggle">
+<button class="btn btn-default sidebar-toggle js-sidebar-wiki-toggle" role="button" type="button">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-double-left"></i>
+</button>
+<div class="wiki-breadcrumb">
+<span>Mesh protocol</span>
+</div>
+<div class="nav-text">
+<h2 class="wiki-page-title">Mesh protocol</h2>
+<span class="wiki-last-edit-by">
+Last edited by
+<strong>
+BlackEdder
+</strong>
+<time class="js-timeago js-timeago-render" title="" datetime="2017-04-17T17:02:46Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Apr 17, 2017 5:02pm">2 months ago</time>
+</span>
+</div>
+<div class="nav-controls">
+<a class="btn" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol/history">Page history
+</a>
+</div>
+</div>
+<div class="wiki-holder prepend-top-default append-bottom-default">
+<div class="wiki">
+<p dir="auto">The protocol used by the mesh is JSON based.  Here we describe the role and the JSON schema used for the different messages.  The messages send between nodes can be subdivided into control messages and user messages. The control messages are send between nodes to exchange information about routing and sync the time between nodes, while the user messages are generated by the user and will send a JSON object either to a single node or broadcast it over the network.</p>
+
+<p dir="auto">The basic JSON schema for any message is:</p>
+
+<pre class="code highlight js-syntax-highlight json white" lang="json" v-pre="true"><code><span id="LC1" class="line" lang="json"><span class="p">{</span></span>
+<span id="LC2" class="line" lang="json"><span class="w">    </span><span class="s2">"dest"</span><span class="p">:</span><span class="w"> </span><span class="mi">887034362</span><span class="p">,</span></span>
+<span id="LC3" class="line" lang="json"><span class="w">    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">37418</span><span class="p">,</span></span>
+<span id="LC4" class="line" lang="json"><span class="w">    </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">6</span></span>
+<span id="LC5" class="line" lang="json"><span class="p">}</span></span></code></pre>
+<p dir="auto">where <code>dest</code> is the destination node, <code>from</code> is previous node the message passed through, <code>type</code> is the type of message and <code>timestamp</code> the time at which the message is send.</p>
+
+<h1 dir="auto">
+<a id="user-content-addresses" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#addresses" aria-hidden="true"></a>Addresses</h1>
+
+<p dir="auto">Node address is derived from SOFT_AP mac address, actually last 4 bytes of mac address.</p>
+
+<h1 dir="auto">
+<a id="user-content-control-packages" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#control-packages" aria-hidden="true"></a>Control packages</h1>
+
+<p dir="auto">Control packages are only exchanged between neighbouring nodes and consist of a number of types.</p>
+
+<h2 dir="auto">
+<a id="user-content-time-sync" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#time-sync" aria-hidden="true"></a>Time sync</h2>
+
+<p dir="auto">Nodes clocks are synchronized so that all them they share the same clock. So, they can run tasks synchronously.</p>
+
+<p dir="auto">Time in a node is synchronized with its neighbors. When node time is update all its connections but the just adjusted one is marked to be updated. So, mesh time is kept in sync in a few seconds span with a precision of a few milliseconds.</p>
+
+<p dir="auto">Time sync is started periodically every 10 minutes. A random delay (plus minus 35 %) is added to every iteration to avoid time sync collisions, although if happen they are considered and processed accordingly.</p>
+
+<p dir="auto">Besides this near periodic synchronization, a time sync is started every time a node connects to an AP.</p>
+
+<p dir="auto">Before starting a sync request, originating node decides if who (its pair or itself) should adapt its clock. Node with fewer connections and subconnections will adopt a new time to get synchronized. In case of an equal number of connections, the node bahabing as an AP will be the time master.</p>
+
+<p dir="auto">Sync precision is measured on every synchronization. If a minimum value of 10 ms is not achieved, the same process is repeated until that precision value is achieved. This normally takes 2 to 4 time sync requests to get good precision after first start up. This usually takes less than one second.</p>
+
+<p dir="auto">After network is synchronized accurately the number of required messages to maintain same precision is 1 or 2.</p>
+
+<h3 dir="auto">
+<a id="user-content-time-sync-json-messages" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#time-sync-json-messages" aria-hidden="true"></a>Time Sync JSON messages</h3>
+
+<p dir="auto">After a node is first connected to mesh or connected to a new AP node it calculates the need to adopt other node's time as explained above.</p>
+
+<p dir="auto">If it has not to adopt time, then it asks the other party to request time using this message.</p>
+
+<pre class="code highlight js-syntax-highlight json white" lang="json" v-pre="true"><code><span id="LC1" class="line" lang="json"><span class="p">{</span></span>
+<span id="LC2" class="line" lang="json"><span class="w">    </span><span class="s2">"dest"</span><span class="p">:</span><span class="w"> </span><span class="mi">887034362</span><span class="p">,</span></span>
+<span id="LC3" class="line" lang="json"><span class="w">    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">37418</span><span class="p">,</span></span>
+<span id="LC4" class="line" lang="json"><span class="w">    </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span></span>
+<span id="LC5" class="line" lang="json"><span class="w">    </span><span class="s2">"msg"</span><span class="p">:{</span></span>
+<span id="LC6" class="line" lang="json"><span class="w">         </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">0</span></span>
+<span id="LC7" class="line" lang="json"><span class="w">    </span><span class="p">}</span></span>
+<span id="LC8" class="line" lang="json"><span class="p">}</span></span></code></pre>
+<p dir="auto">The recipient will start a Time Sync procedure as follows.</p>
+
+<p dir="auto">On the other hand if it has to adopt time it send a time request like this:</p>
+
+<pre class="code highlight js-syntax-highlight json white" lang="json" v-pre="true"><code><span id="LC1" class="line" lang="json"><span class="p">{</span></span>
+<span id="LC2" class="line" lang="json"><span class="w">    </span><span class="s2">"dest"</span><span class="p">:</span><span class="w"> </span><span class="mi">887034362</span><span class="p">,</span></span>
+<span id="LC3" class="line" lang="json"><span class="w">    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">37418</span><span class="p">,</span></span>
+<span id="LC4" class="line" lang="json"><span class="w">    </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span></span>
+<span id="LC5" class="line" lang="json"><span class="w">    </span><span class="s2">"msg"</span><span class="p">:{</span></span>
+<span id="LC6" class="line" lang="json"><span class="w">        </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span></span>
+<span id="LC7" class="line" lang="json"><span class="w">        </span><span class="s2">"t0"</span><span class="p">:</span><span class="mi">32990</span></span>
+<span id="LC8" class="line" lang="json"><span class="w">    </span><span class="p">}</span></span>
+<span id="LC9" class="line" lang="json"><span class="p">}</span></span></code></pre>
+<p dir="auto"><code>t0</code> is internal clock value when the packet was generated in time sync adopter,</p>
+
+<p dir="auto">The recipient, then fills the response with other 2 timestams, <code>t1</code> and <code>t2</code>.</p>
+
+<pre class="code highlight js-syntax-highlight json white" lang="json" v-pre="true"><code><span id="LC1" class="line" lang="json"><span class="p">{</span></span>
+<span id="LC2" class="line" lang="json"><span class="w">    </span><span class="s2">"dest"</span><span class="p">:</span><span class="w"> </span><span class="mi">37418</span><span class="p">,</span></span>
+<span id="LC3" class="line" lang="json"><span class="w">    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">887034362</span><span class="p">,</span></span>
+<span id="LC4" class="line" lang="json"><span class="w">    </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span></span>
+<span id="LC5" class="line" lang="json"><span class="w">    </span><span class="s2">"msg"</span><span class="p">:{</span></span>
+<span id="LC6" class="line" lang="json"><span class="w">        </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span></span>
+<span id="LC7" class="line" lang="json"><span class="w">        </span><span class="s2">"t0"</span><span class="p">:</span><span class="mi">32990</span><span class="p">,</span></span>
+<span id="LC8" class="line" lang="json"><span class="w">        </span><span class="s2">"t1"</span><span class="p">:</span><span class="mi">448585896</span><span class="p">,</span></span>
+<span id="LC9" class="line" lang="json"><span class="w">        </span><span class="s2">"t2"</span><span class="p">:</span><span class="mi">448596056</span><span class="p">,</span></span>
+<span id="LC10" class="line" lang="json"><span class="w">    </span><span class="p">}</span></span>
+<span id="LC11" class="line" lang="json"><span class="p">}</span></span></code></pre>
+<p dir="auto"><code>t1</code> is timestamp when request was received
+<code>t2</code> is timestamp when response is generated</p>
+
+<p dir="auto">Adopter calculates <code>t3</code>as timestamp when response is received. In this example it can be <strong><code>63221</code></strong>.</p>
+
+<p dir="auto">Time <strong>offset</strong> and <strong>round trip delay</strong> in adopter are calculated like</p>
+
+<span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>o</mi><mi>f</mi><mi>f</mi><mi>s</mi><mi>e</mi><mi>t</mi><mo>=</mo><mo>(</mo><mo>(</mo><mi>t</mi><mn>1</mn><mo>−</mo><mi>t</mi><mn>0</mn><mo>)</mo><mi mathvariant="normal">/</mi><mn>2</mn><mo>)</mo><mo>+</mo><mo>(</mo><mo>(</mo><mi>t</mi><mn>2</mn><mo>−</mo><mi>t</mi><mn>3</mn><mo>)</mo><mi mathvariant="normal">/</mi><mn>2</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">offset = ((t1 - t0) / 2) + ((t2 - t3) / 2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.75em;"></span><span class="strut bottom" style="height: 1em; vertical-align: -0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">o</span><span class="mord mathit" style="margin-right: 0.10764em;">f</span><span class="mord mathit" style="margin-right: 0.10764em;">f</span><span class="mord mathit">s</span><span class="mord mathit">e</span><span class="mord mathit">t</span><span class="mrel">=</span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathit">t</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit">t</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mbin">+</span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathit">t</span><span class="mord mathrm">2</span><span class="mbin">−</span><span class="mord mathit">t</span><span class="mord mathrm">3</span><span class="mclose">)</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span><span class="mclose">)</span></span></span></span></span></span>
+<span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mi>r</mi><mi>i</mi><mi>p</mi><mi>D</mi><mi>e</mi><mi>l</mi><mi>a</mi><mi>y</mi><mo>=</mo><mo>(</mo><mi>t</mi><mn>3</mn><mo>−</mo><mi>t</mi><mn>0</mn><mo>)</mo><mo>−</mo><mo>(</mo><mi>t</mi><mn>2</mn><mo>−</mo><mi>t</mi><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">tripDelay = (t3 - t0) - (t2 - t1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.75em;"></span><span class="strut bottom" style="height: 1em; vertical-align: -0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">t</span><span class="mord mathit" style="margin-right: 0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right: 0.02778em;">D</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right: 0.01968em;">l</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right: 0.03588em;">y</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathit">t</span><span class="mord mathrm">3</span><span class="mbin">−</span><span class="mord mathit">t</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mbin">−</span><span class="mopen">(</span><span class="mord mathit">t</span><span class="mord mathrm">2</span><span class="mbin">−</span><span class="mord mathit">t</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span></span></span>
+<p dir="auto">In this example:</p>
+
+<span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mn>0</mn><mo>=</mo><mn>3</mn><mn>2</mn><mn>9</mn><mn>9</mn><mn>0</mn><mo separator="true">,</mo><mi>t</mi><mn>1</mn><mo>=</mo><mn>4</mn><mn>4</mn><mn>8</mn><mn>5</mn><mn>8</mn><mn>5</mn><mn>8</mn><mn>9</mn><mn>6</mn><mo separator="true">,</mo><mi>t</mi><mn>2</mn><mo>=</mo><mn>4</mn><mn>4</mn><mn>8</mn><mn>5</mn><mn>9</mn><mn>6</mn><mn>0</mn><mn>5</mn><mn>6</mn><mo separator="true">,</mo><mi>t</mi><mn>3</mn><mo>=</mo><mn>6</mn><mn>3</mn><mn>2</mn><mn>2</mn><mn>1</mn></mrow><annotation encoding="application/x-tex">t0 = 32990, t1 = 448585896, t2 = 448596056, t3 = 63221
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.64444em;"></span><span class="strut bottom" style="height: 0.83888em; vertical-align: -0.19444em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">t</span><span class="mord mathrm">0</span><span class="mrel">=</span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">9</span><span class="mord mathrm">9</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathit">t</span><span class="mord mathrm">1</span><span class="mrel">=</span><span class="mord mathrm">4</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord mathrm">9</span><span class="mord mathrm">6</span><span class="mpunct">,</span><span class="mord mathit">t</span><span class="mord mathrm">2</span><span class="mrel">=</span><span class="mord mathrm">4</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">9</span><span class="mord mathrm">6</span><span class="mord mathrm">0</span><span class="mord mathrm">5</span><span class="mord mathrm">6</span><span class="mpunct">,</span><span class="mord mathit">t</span><span class="mord mathrm">3</span><span class="mrel">=</span><span class="mord mathrm">6</span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">2</span><span class="mord mathrm">1</span></span></span></span></span></span>
+<p dir="auto">Then calculated values would be</p>
+
+<span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>o</mi><mi>f</mi><mi>f</mi><mi>s</mi><mi>e</mi><mi>t</mi><mo>=</mo><mo>(</mo><mo>(</mo><mn>4</mn><mn>4</mn><mn>8</mn><mn>5</mn><mn>8</mn><mn>5</mn><mn>8</mn><mn>9</mn><mn>6</mn><mo>−</mo><mn>3</mn><mn>2</mn><mn>9</mn><mn>9</mn><mn>0</mn><mo>)</mo><mi mathvariant="normal">/</mi><mn>2</mn><mo>)</mo><mo>+</mo><mo>(</mo><mo>(</mo><mn>4</mn><mn>4</mn><mn>8</mn><mn>5</mn><mn>9</mn><mn>6</mn><mn>0</mn><mn>5</mn><mn>6</mn><mo>−</mo><mn>6</mn><mn>3</mn><mn>2</mn><mn>2</mn><mn>1</mn><mo>)</mo><mi mathvariant="normal">/</mi><mn>2</mn><mo>)</mo><mo>=</mo><mn>4</mn><mn>4</mn><mn>8</mn><mn>5</mn><mn>4</mn><mn>2</mn><mn>8</mn><mn>7</mn><mn>1</mn><mi>u</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">offset    = ((448585896 - 32990) / 2) + ((448596056 - 63221) / 2) = 448542871 us</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.75em;"></span><span class="strut bottom" style="height: 1em; vertical-align: -0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">o</span><span class="mord mathit" style="margin-right: 0.10764em;">f</span><span class="mord mathit" style="margin-right: 0.10764em;">f</span><span class="mord mathit">s</span><span class="mord mathit">e</span><span class="mord mathit">t</span><span class="mrel">=</span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathrm">4</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord mathrm">9</span><span class="mord mathrm">6</span><span class="mbin">−</span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">9</span><span class="mord mathrm">9</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mbin">+</span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathrm">4</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">9</span><span class="mord mathrm">6</span><span class="mord mathrm">0</span><span class="mord mathrm">5</span><span class="mord mathrm">6</span><span class="mbin">−</span><span class="mord mathrm">6</span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">2</span><span class="mord mathrm">1</span><span class="mclose">)</span><span class="mord mathrm">/</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">4</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">4</span><span class="mord mathrm">2</span><span class="mord mathrm">8</span><span class="mord mathrm">7</span><span class="mord mathrm">1</span><span class="mord mathit">u</span><span class="mord mathit">s</span></span></span></span></span></span>
+<span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mi>r</mi><mi>i</mi><mi>p</mi><mi>D</mi><mi>e</mi><mi>l</mi><mi>a</mi><mi>y</mi><mo>=</mo><mo>(</mo><mn>6</mn><mn>3</mn><mn>2</mn><mn>2</mn><mn>1</mn><mo>−</mo><mn>3</mn><mn>2</mn><mn>9</mn><mn>9</mn><mn>0</mn><mo>)</mo><mo>−</mo><mo>(</mo><mn>4</mn><mn>4</mn><mn>8</mn><mn>5</mn><mn>9</mn><mn>6</mn><mn>0</mn><mn>5</mn><mn>6</mn><mo>−</mo><mn>4</mn><mn>4</mn><mn>8</mn><mn>5</mn><mn>8</mn><mn>5</mn><mn>8</mn><mn>9</mn><mn>6</mn><mo>)</mo><mo>=</mo><mn>2</mn><mn>0</mn><mn>0</mn><mn>7</mn><mn>1</mn><mi>u</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">tripDelay = (63221 - 32990) - (448596056 - 448585896) = 20071 us</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height: 0.75em;"></span><span class="strut bottom" style="height: 1em; vertical-align: -0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">t</span><span class="mord mathit" style="margin-right: 0.02778em;">r</span><span class="mord mathit">i</span><span class="mord mathit">p</span><span class="mord mathit" style="margin-right: 0.02778em;">D</span><span class="mord mathit">e</span><span class="mord mathit" style="margin-right: 0.01968em;">l</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right: 0.03588em;">y</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathrm">6</span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">2</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathrm">3</span><span class="mord mathrm">2</span><span class="mord mathrm">9</span><span class="mord mathrm">9</span><span class="mord mathrm">0</span><span class="mclose">)</span><span class="mbin">−</span><span class="mopen">(</span><span class="mord mathrm">4</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">9</span><span class="mord mathrm">6</span><span class="mord mathrm">0</span><span class="mord mathrm">5</span><span class="mord mathrm">6</span><span class="mbin">−</span><span class="mord mathrm">4</span><span class="mord mathrm">4</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord mathrm">5</span><span class="mord mathrm">8</span><span class="mord mathrm">9</span><span class="mord mathrm">6</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">7</span><span class="mord mathrm">1</span><span class="mord mathit">u</span><span class="mord mathit">s</span></span></span></span></span></span>
+<p dir="auto">Process is repeated the required number of times until calculated offset is less than 10 us. Normally, first sync takes 2 to 4 iterations.</p>
+
+<p dir="auto">This process is then repeated every 10 minutes ± 35%, to avoid time sync collisions.</p>
+
+<h2 dir="auto">
+<a id="user-content-routing-information" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#routing-information" aria-hidden="true"></a>Routing information</h2>
+
+<p dir="auto">Routing information is shared in form of node synchronization messages. Every node inform its neighbors about all other nodes it is connected directly to and all their respective subconnections. In this way every node has a real time picture of the whole mesh and knows which nodes are connected to the mesh. This information is <a href="https://gitlab.com/BlackEdder/painlessMesh/blob/master/src/painlessMeshConnection.cpp#L135">refreshed around</a> <a href="https://gitlab.com/BlackEdder/painlessMesh/blob/master/src/painlessMesh.h#L23">every 3 seconds</a>. Synchronization consists of a pair of message. First the node sends a <code>NODE_SYNC_REQUEST</code> to its neighbors. This message is of type 5 (<code>"type": 5</code>). Secondly, the neigbors reply with a <code>NODE_SYNC_REPLY</code> (<code>"type": 6</code>). Both messages have the following schema:</p>
+
+<pre class="code highlight js-syntax-highlight json white" lang="json" v-pre="true"><code><span id="LC1" class="line" lang="json"><span class="p">{</span></span>
+<span id="LC2" class="line" lang="json"><span class="w">  </span><span class="s2">"dest"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span></span>
+<span id="LC3" class="line" lang="json"><span class="w">  </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span></span>
+<span id="LC4" class="line" lang="json"><span class="w">  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span></span>
+<span id="LC5" class="line" lang="json"><span class="w">  </span><span class="s2">"subs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span></span>
+<span id="LC6" class="line" lang="json"><span class="w">    </span><span class="p">{</span></span>
+<span id="LC7" class="line" lang="json"><span class="w">      </span><span class="s2">"nodeId"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span></span>
+<span id="LC8" class="line" lang="json"><span class="w">      </span><span class="s2">"subs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span></span>
+<span id="LC9" class="line" lang="json"><span class="w">        </span><span class="p">{</span></span>
+<span id="LC10" class="line" lang="json"><span class="w">          </span><span class="s2">"nodeId"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span></span>
+<span id="LC11" class="line" lang="json"><span class="w">          </span><span class="s2">"subs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span></span>
+<span id="LC12" class="line" lang="json"><span class="w">        </span><span class="p">}</span></span>
+<span id="LC13" class="line" lang="json"><span class="w">      </span><span class="p">]</span></span>
+<span id="LC14" class="line" lang="json"><span class="w">    </span><span class="p">}</span></span>
+<span id="LC15" class="line" lang="json"><span class="w">   </span><span class="p">]</span></span>
+<span id="LC16" class="line" lang="json"><span class="p">}</span></span></code></pre>
+<p dir="auto">Every sub connection has a subs propery containing their sub connections again.</p>
+
+<h1 dir="auto">
+<a id="user-content-user-packages" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#user-packages" aria-hidden="true"></a>User packages</h1>
+
+<p dir="auto">User messages can be sent over the network. Two kind of messages are possible.</p>
+
+<h2 dir="auto">
+<a id="user-content-single-addressed-messages" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#single-addressed-messages" aria-hidden="true"></a>Single addressed messages</h2>
+
+<p dir="auto">These messages are tagged with the originator's node address and destination node address. The message type is 9 and a string containing the message is added, resulting in a the following JSON schema:</p>
+
+<pre class="code highlight js-syntax-highlight json white" lang="json" v-pre="true"><code><span id="LC1" class="line" lang="json"><span class="p">{</span></span>
+<span id="LC2" class="line" lang="json"><span class="w">    </span><span class="s2">"dest"</span><span class="p">:</span><span class="w"> </span><span class="mi">887034362</span><span class="p">,</span></span>
+<span id="LC3" class="line" lang="json"><span class="w">    </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">37418</span><span class="p">,</span></span>
+<span id="LC4" class="line" lang="json"><span class="w">    </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span></span>
+<span id="LC5" class="line" lang="json"><span class="w">    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The message I want to send"</span></span>
+<span id="LC6" class="line" lang="json"><span class="p">}</span></span></code></pre>
+<h2 dir="auto">
+<a id="user-content-broadcast-messages" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#broadcast-messages" aria-hidden="true"></a>Broadcast messages</h2>
+
+<p dir="auto">Broadcast are virtually identical to single messages, but their type is set to 8 and the destination is equal to the receiving node id. When forwarding such a message the destination field is changed to the next node the message is send to.</p>
+</div>
+</div>
+</div>
+<aside class="right-sidebar right-sidebar-expanded wiki-sidebar js-wiki-sidebar js-right-sidebar affix-top" data-offset-top="50" data-spy="affix" style="overflow: hidden; outline: none; height: 584px;" tabindex="0">
+<div class="block wiki-sidebar-header append-bottom-default">
+<a class="gutter-toggle pull-right visible-xs-block visible-sm-block js-sidebar-wiki-toggle" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-double-right"></i>
+</a>
+<a class="" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/git_access"><i aria-hidden="true" data-hidden="true" class="fa fa-cloud-download"></i>&nbsp;
+Clone repository
+</a></div>
+<div class="blocks-container">
+<div class="block block-first">
+<ul class="wiki-pages">
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/api">Api
+</a></li>
+
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/bridge-between-mesh-and-another-network">Bridge between mesh and another network
+</a></li>
+
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/bridge-setup-example">Bridge setup example
+</a></li>
+
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/connect-mode:-ap_only,-sta_only,-sta_ap-mode">Connect mode: ap_only, sta_only, sta_ap mode
+</a></li>
+
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home">Home
+</a></li>
+
+<li class="active">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol">Mesh protocol
+</a></li>
+
+
+</ul>
+</div>
+<div class="block">
+<a class="btn btn-block" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/pages">More Pages
+</a></div>
+</div>
+</aside>
+<div class="container-fluid container-limited">
+<div class="modal" id="modal-new-wiki">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<a class="close" data-dismiss="modal" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#">×</a>
+<h3 class="page-title">New Wiki Page</h3>
+</div>
+<div class="modal-body">
+<form class="new-wiki-page">
+<div class="form-group">
+<label for="new_wiki_path"><span>Page slug</span>
+</label><input type="text" name="new_wiki_path" id="new_wiki_path" placeholder="how-to-setup" class="form-control" required="required" data-wikis-path="/BlackEdder/painlessMesh/wikis" autofocus="autofocus">
+<span class="new-wiki-page-slug-tip">
+<i aria-hidden="true" data-hidden="true" class="fa fa-lightbulb-o"></i>
+Tip: You can specify the full path for the new file.
+We will automatically create any missing directories.
+</span>
+</div>
+<div class="form-actions">
+<button name="button" type="submit" class="build-new-wiki btn btn-create">Create page</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+  new Sidebar();
+</script>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="device-xs visible-xs"></div><div class="device-sm visible-sm"></div><div class="device-md visible-md"></div><div class="device-lg visible-lg"></div><div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 7px; z-index: 200; cursor: default; position: absolute; top: 102px; left: 1512.2px; height: 735px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 7px; z-index: 200; top: 830px; left: 1230.2px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div></body><div id="cye-workaround-body" style="position: absolute; left: 0px; top: 0px; z-index: -2147483646; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255); height: 3630px; width: 1519px;"></div><div id="cye-workaround-body-image" style="position: absolute; left: 0px; top: 0px; z-index: -2147483645; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); height: 3630px; width: 1519px;"></div></html>

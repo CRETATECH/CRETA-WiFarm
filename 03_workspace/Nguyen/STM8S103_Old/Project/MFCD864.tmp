@@ -1,0 +1,146 @@
+#include "stm8s.h"
+#include "gpio.h"
+#include "timer.h"
+#include "i2c.h"
+#include "uart.h"
+#include "bh1750.h"
+#include "sht1x.h"
+#include "pwm.h"
+#include "stdbool.h"
+
+#define DEVICE_1 PIN_1
+#define DEVICE_2 PIN_2
+#define DEVICE_3 0x03
+
+#define CMD_MAX_LENGTH  20
+#define FRAME_LENGTH    11
+
+void clkInit();
+uint8_t cmdGet();
+void doRequest(uint8_t cmd, uint8_t dev);
+void sensorReturnTemp();
+void sensorReturnLux();
+void delay(uint16_t nCount);
+
+uint16_t lux;
+uint16_t temp;
+uint16_t humid;
+uint8_t timerSecond = 0;
+
+
+
+//Debug Variable
+uint8_t ledStatus;
+uint8_t roleStatus = LOW;
+
+void main( void )
+{
+    // Clock Init
+    CLK_DeInit();
+    CLK_HSICmd(ENABLE);
+    CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV2);
+    CLK_SYSCLKConfig(CLK_PRESCALER_CPUDIV1);
+    CLK_AdjustHSICalibrationValue(CLK_HSITRIMVALUE_0);
+    
+    // Module Init
+    timerInit(0xFFFF);
+    i2cInit();
+    uartInit();
+    bh1750Init();
+    timerIntEnable();
+    enableInterrupts();
+    gpioPinMode(GPIO_PORTA, PIN_1|PIN_2, GPIO_OUTPUT);
+    gpioPinMode(GPIO_PORTD, PIN_4, GPIO_OUTPUT);
+    
+    // Buffer Init
+    *writeStart = '*';
+    *writeEnd   = '#';
+    
+    while(1)
+    {
+        if(cmdGet() == SYS_OK)
+        {
+            cmdDoRequest();
+        }
+        if (timerSecond == 3)
+        {
+            temp = sht1xReadTempC();
+            lux = bh1750Read();
+            sensorReturnLux();
+            sensorReturnTemp();
+            timerSecond = 0;
+            roleStatus ^= HIGH;
+            gpioWritePin(GPIO_PORTD, PIN_4, roleStatus);
+        }
+    }
+}
+
+void delay(uint16_t nCount)
+{
+  /* Decrement nCount value */
+  while (nCount != 0)
+  {
+    nCount--;
+  }
+}
+
+void clkInit()
+{
+    CLK_DeInit();
+    CLK_HSICmd(ENABLE);
+    CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV2);
+    CLK_SYSCLKConfig(CLK_PRESCALER_CPUDIV1);
+    CLK_AdjustHSICalibrationValue(CLK_HSITRIMVALUE_0);
+}
+
+void sensorReturnLux()
+{
+    *writeFunction = 0x00;
+    *writeAddress  = 0x06;
+    *writeStatus   = 0x00;
+    *writeDataHigh = ((uint8_t)(lux>>8));
+    *writeDataLow  = ((uint8_t)lux);
+    uartWrite(writeStart, 12);
+}
+
+void sensorReturnTemp()
+{
+    *writeFunction = 0x00;
+    *writeAddress  = 0x04;
+    *writeStatus   = 0x00;
+    *writeDataHigh = ((uint8_t)(temp>>8));
+    *writeDataLow  = ((uint8_t)temp);
+    uartWrite(writeStart, 12);
+}
+
+#pragma vector = 15
+__interrupt void timerInt()
+{
+    TIM2_ClearITPendingBit(TIM2_IT_UPDATE );
+    if (timerSecond == 30)
+        timerSecond = 0;
+    else timerSecond ++;
+}
+
+#ifdef USE_FULL_ASSERT
+
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *   where the assert_param error has occurred.
+  * @param file: pointer to the source file name
+  * @param line: assert_param error line source number
+  * @retval : None
+  */
+void assert_failed(u8* file, u32 line)
+{ 
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+
+  /* Infinite loop */
+  /*
+  while (1)
+  {
+  }
+  */
+}
+#endif

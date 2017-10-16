@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://gitlab.com/BlackEdder/painlessMesh/wikis/home -->
+<html class="cye-disabled cye-nm" lang="en"><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="object" property="og:type">
+<meta content="GitLab" property="og:site_name">
+<meta content="Home · Wiki · BlackEdder / painlessMesh" property="og:title">
+<meta content="ESP8266 based mesh. Based on https://github.com/Coopdis/easyMesh" property="og:description">
+<meta content="https://gitlab.com/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="og:image">
+<meta content="https://gitlab.com/BlackEdder/painlessMesh/wikis/home" property="og:url">
+<meta content="summary" property="twitter:card">
+<meta content="Home · Wiki · BlackEdder / painlessMesh" property="twitter:title">
+<meta content="ESP8266 based mesh. Based on https://github.com/Coopdis/easyMesh" property="twitter:description">
+<meta content="https://gitlab.com/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="twitter:image">
+
+<title>Home · Wiki · BlackEdder / painlessMesh · GitLab</title>
+<meta content="ESP8266 based mesh. Based on https://github.com/Coopdis/easyMesh" name="description">
+<link rel="shortcut icon" type="image/x-icon" href="https://gitlab.com/assets/favicon-075eba76312e8421991a0c1f89a89ee81678bcde72319dd3e8047e2a47cd3a42.ico" id="favicon">
+<link rel="stylesheet" media="all" href="./PainlessMesh Technical Documentation_files/application-bf562c36db4b06702ba455fb509cdac15b6f7b5797112e8a3784394849c9bb3b.css">
+<link rel="stylesheet" media="print" href="./PainlessMesh Technical Documentation_files/print-87b4ace0db1f79d91e4fe6e74435b66b71d70fee57ffbb72d0fade17374fcc6b.css">
+
+
+<script type="text/javascript" async="" defer="" src="./PainlessMesh Technical Documentation_files/piwik.js.download"></script><script>
+//<![CDATA[
+window.gon={};gon.api_version="v4";gon.default_avatar_url="https:\/\/gitlab.com\/assets\/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png";gon.max_file_size=10;gon.asset_host=null;gon.relative_url_root="";gon.shortcuts_path="\/help\/shortcuts";gon.user_color_scheme="white";gon.katex_css_url="\/assets\/katex-e46cafe9c3fa73920a7c2c063ee8bb0613e0cf85fd96a3aea25f8419c4bfcfba.css";gon.katex_js_url="\/assets\/katex-04bcf56379fcda0ee7c7a63f71d0fc15ffd2e014d017cd9d51fd6554dfccf40a.js";gon.sentry_dsn="https:\/\/526a2f38a53d44e3a8e69bfa001d1e8b@sentry.gitlap.com\/15";gon.gitlab_url="https:\/\/gitlab.com";gon.revision="44d109d";gon.gitlab_logo="\/assets\/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png";
+//]]>
+</script><style id="nightModeStyle">
+html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
+ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) #cye-workaround-body {-webkit-filter:contrast(91%) brightness(84%) invert(1);}</style><style id="cyebody">html.cye-enabled.cye-lm body{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyediv">html.cye-enabled.cye-lm div{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyetable">html.cye-enabled.cye-lm th{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm td{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyetextInput">html.cye-enabled.cye-lm input[type=text]{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm textarea{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeselect">html.cye-enabled.cye-lm select{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeul">html.cye-enabled.cye-lm ul{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeChangeByClick">html.cye-enabled.cye-lm .cye-lm-tag,html.cye-enabled.cye-lm.cye-lm-tag{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style>
+<script src="./PainlessMesh Technical Documentation_files/runtime.1e4f1a3da7dfa5700156.bundle.js.download"></script>
+<script src="./PainlessMesh Technical Documentation_files/common.a208e8b828f4e7f4759b.bundle.js.download"></script>
+<script src="./PainlessMesh Technical Documentation_files/locale.3db4c8eef74bbad2de0a.bundle.js.download"></script>
+<script src="./PainlessMesh Technical Documentation_files/main.7ca17a24789acfd5a781.bundle.js.download"></script>
+<script src="./PainlessMesh Technical Documentation_files/raven.61375d9168165e89d174.bundle.js.download"></script>
+
+
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="spL3S7tYwRwb8pECNgDkSg3jsVF01CKX/iESbAiqnuwzm09FdoMshs5vv/+MMO/ceUEAE2OazhkeJuc8VUDI5w==">
+<meta content="origin-when-cross-origin" name="referrer">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<meta content="#474D57" name="theme-color">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.com/assets/touch-icon-iphone-5a9cee0e8a51212e70b90c87c12f382c428870c0ff67d1eb034d884b78d2dae7.png">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.com/assets/touch-icon-ipad-a6eec6aeb9da138e507593b464fdac213047e49d3093fc30e90d9a995df83ba3.png" sizes="76x76">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.com/assets/touch-icon-iphone-retina-72e2aadf86513a56e050e7f0f2355deaa19cc17ed97bbe5147847f2748e5a3e3.png" sizes="120x120">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.com/assets/touch-icon-ipad-retina-8ebe416f5313483d9c1bc772b5bbe03ecad52a54eba443e5215a22caed2a16a2.png" sizes="152x152">
+<link color="rgb(226, 67, 41)" href="https://gitlab.com/assets/logo-d36b5212042cebc89b96df4bf6ac24e43db316143e89926c0db839ff694d2de4.svg" rel="mask-icon">
+<meta content="/assets/msapplication-tile-1196ec67452f618d39cdd85e2e3a542f76574c071051ae7effbfde01710eb17d.png" name="msapplication-TileImage">
+<meta content="#30353E" name="msapplication-TileColor">
+
+
+<!-- Piwik -->
+<script>
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//piwik.gitlab.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>&lt;p&gt;&lt;img src="//piwik.gitlab.com/piwik.php?idsite=1" style="border:0;" alt="" /&gt;&lt;/p&gt;</noscript>
+<!-- End Piwik Code -->
+
+
+</head><div id="cyeBlackMaskLayer" style="background-color: rgb(19, 19, 19); position: fixed; width: 1980px; height: 1080px; z-index: -2147483648;"></div>
+
+<body class="" data-group="" data-page="projects:wikis:show" data-project="painlessMesh">
+
+
+<header class="navbar navbar-gitlab with-horizontal-nav">
+<div class="navbar-border" style="opacity: 0;"></div>
+<a class="sr-only gl-accessibility" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#content-body" tabindex="1">Skip to content</a>
+<div class="container-fluid">
+<div class="header-content">
+<div class="dropdown global-dropdown">
+<button class="global-dropdown-toggle" data-toggle="dropdown" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i aria-hidden="true" data-hidden="true" class="fa fa-bars"></i>
+</button>
+<div class="dropdown-menu-nav global-dropdown-menu">
+<ul>
+<li class="home"><a title="Projects" class="dashboard-shortcuts-projects" href="https://gitlab.com/explore"><div class="shortcut-mappings">
+<div class="key">
+<i aria-label="hidden" class="fa fa-arrow-up"></i>
+P
+</div>
+</div>
+<span>
+Projects
+</span>
+</a></li><li class=""><a title="Groups" class="dashboard-shortcuts-groups" href="https://gitlab.com/explore/groups"><div class="shortcut-mappings">
+<div class="key">
+<i aria-label="hidden" class="fa fa-arrow-up"></i>
+G
+</div>
+</div>
+<span>
+Groups
+</span>
+</a></li><li class=""><a title="Snippets" class="dashboard-shortcuts-snippets" href="https://gitlab.com/explore/snippets"><div class="shortcut-mappings">
+<div class="key">
+<i aria-label="hidden" class="fa fa-arrow-up"></i>
+S
+</div>
+</div>
+<span>
+Snippets
+</span>
+</a></li><li class="divider"></li>
+<li class=""><a title="Help" href="https://gitlab.com/help"><span>
+Help
+</span>
+</a></li></ul>
+
+</div>
+</div>
+<div class="header-logo">
+<a class="home" title="Dashboard" id="logo" href="https://gitlab.com/"><svg width="28" height="28" class="tanuki-logo" viewBox="0 0 36 36">
+  <path class="tanuki-shape tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
+  <path class="tanuki-shape tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
+  <path class="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
+  <path class="tanuki-shape tanuki-left-eye" fill="#fc6d26" d="M18,34.38 11.38,14 2,14 6,25Z"></path>
+  <path class="tanuki-shape tanuki-right-eye" fill="#fc6d26" d="M18,34.38 24.62,14 34,14 30,25Z"></path>
+  <path class="tanuki-shape tanuki-left-cheek" fill="#fca326" d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
+  <path class="tanuki-shape tanuki-right-cheek" fill="#fca326" d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
+</svg>
+
+</a></div>
+<div class="title-container">
+<h1 class="title"><a href="https://gitlab.com/BlackEdder">BlackEdder</a> / <a class="project-item-select-holder" href="https://gitlab.com/BlackEdder/painlessMesh">painlessMesh</a></h1>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="hidden-sm hidden-xs">
+<div class="has-location-badge search search-form">
+<form class="navbar-form" action="https://gitlab.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><div class="search-input-container">
+<div class="location-badge">This project</div>
+<div class="search-input-wrap">
+<div class="dropdown" data-url="/search/autocomplete">
+<input type="search" name="search" id="search" placeholder="Search" class="search-input dropdown-menu-toggle no-outline js-search-dashboard-options disabled" spellcheck="false" tabindex="1" autocomplete="off" data-toggle="dropdown" data-issues-path="https://gitlab.com/dashboard/issues" data-mr-path="https://gitlab.com/dashboard/merge_requests" aria-label="Search" value="">
+<div class="dropdown-menu dropdown-select">
+<div class="dropdown-content"><ul>
+<li>
+<a class="is-focused dropdown-menu-empty-link">
+Loading...
+</a>
+</li>
+</ul>
+</div><div class="dropdown-loading"><i aria-hidden="true" data-hidden="true" class="fa fa-spinner fa-spin"></i></div>
+</div>
+<i class="search-icon"></i>
+<i class="clear-icon js-clear-input"></i>
+</div>
+</div>
+</div>
+<input type="hidden" name="group_id" id="group_id" class="js-search-group-options">
+<input type="hidden" name="project_id" id="search_project_id" value="1977851" class="js-search-project-options" data-project-path="painlessMesh" data-name="painlessMesh" data-issues-path="/BlackEdder/painlessMesh/issues" data-mr-path="/BlackEdder/painlessMesh/merge_requests">
+<input type="hidden" name="scope" id="scope" value="wiki_blobs">
+<input type="hidden" name="repository_ref" id="repository_ref">
+
+<div class="search-autocomplete-opts hide" data-autocomplete-path="/search/autocomplete" data-autocomplete-project-id="1977851"></div>
+</form></div>
+
+</li>
+<li class="visible-sm-inline-block visible-xs-inline-block">
+<a title="Search" aria-label="Search" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://gitlab.com/search"><i aria-hidden="true" data-hidden="true" class="fa fa-search"></i>
+</a></li>
+<li>
+<div>
+<a class="btn btn-sign-in btn-success" href="https://gitlab.com/users/sign_in?redirect_to_referer=yes">Sign in</a>
+</div>
+</li>
+</ul>
+</div>
+<button class="navbar-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i aria-hidden="true" data-hidden="true" class="fa fa-ellipsis-v"></i>
+</button>
+<div class="js-dropdown-menu-projects">
+<div class="dropdown-menu dropdown-select dropdown-menu-projects">
+<div class="dropdown-title"><span>Go to a project</span><button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button"><i aria-hidden="true" data-hidden="true" class="fa fa-times dropdown-menu-close-icon"></i></button></div>
+<div class="dropdown-input"><input type="search" id="" class="dropdown-input-field" placeholder="Search your projects" autocomplete="off" value=""><i aria-hidden="true" data-hidden="true" class="fa fa-search dropdown-input-search"></i><i role="button" aria-hidden="true" data-hidden="true" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i></div>
+<div class="dropdown-content"></div>
+<div class="dropdown-loading"><i aria-hidden="true" data-hidden="true" class="fa fa-spinner fa-spin"></i></div>
+</div>
+</div>
+
+</div>
+</div>
+</header>
+
+<script>
+  var findFileURL = "/BlackEdder/painlessMesh/find_file/master";
+</script>
+
+<div class="page-gutter page-with-sidebar right-sidebar-expanded wiki-sidebar">
+<div class="layout-nav">
+<div class="container-fluid">
+<div class="scrolling-tabs-container">
+<div class="fade-left">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-left"></i>
+</div>
+<div class="fade-right">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-right"></i>
+</div>
+<ul class="nav-links scrolling-tabs is-initialized">
+<li class="home"><a title="Project" class="shortcuts-project" href="https://gitlab.com/BlackEdder/painlessMesh"><span>
+Project
+</span>
+</a></li><li class=""><a title="Repository" class="shortcuts-tree" href="https://gitlab.com/BlackEdder/painlessMesh/tree/master"><span>
+Repository
+</span>
+</a></li><li class=""><a title="Container Registry" class="shortcuts-container-registry" href="https://gitlab.com/BlackEdder/painlessMesh/container_registry"><span>
+Registry
+</span>
+</a></li><li class=""><a title="Issues" class="shortcuts-issues" href="https://gitlab.com/BlackEdder/painlessMesh/issues"><span>
+Issues
+<span class="badge count issue_counter">13</span>
+</span>
+</a></li><li class=""><a title="Merge Requests" class="shortcuts-merge_requests" href="https://gitlab.com/BlackEdder/painlessMesh/merge_requests"><span>
+Merge Requests
+<span class="badge count merge_counter js-merge-counter">3</span>
+</span>
+</a></li><li class=""><a title="Pipelines" class="shortcuts-pipelines" href="https://gitlab.com/BlackEdder/painlessMesh/pipelines"><span>
+Pipelines
+</span>
+</a></li><li class="active"><a title="Wiki" class="shortcuts-wiki" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home"><span>
+Wiki
+</span>
+</a></li><li class=""><a title="Settings" class="shortcuts-tree" href="https://gitlab.com/BlackEdder/painlessMesh/settings/members"><span>
+Settings
+</span>
+</a></li><li class="hidden">
+<a title="Activity" class="shortcuts-project-activity" href="https://gitlab.com/BlackEdder/painlessMesh/activity"><span>
+Activity
+</span>
+</a></li>
+<li class="hidden">
+<a title="Network" class="shortcuts-network" href="https://gitlab.com/BlackEdder/painlessMesh/network/master">Graph
+</a></li>
+<li class="hidden">
+<a title="Charts" class="shortcuts-repository-charts" href="https://gitlab.com/BlackEdder/painlessMesh/graphs/master/charts">Charts
+</a></li>
+<li class="hidden">
+<a class="shortcuts-new-issue" href="https://gitlab.com/BlackEdder/painlessMesh/issues/new">Create a new issue
+</a></li>
+<li class="hidden">
+<a title="Jobs" class="shortcuts-builds" href="https://gitlab.com/BlackEdder/painlessMesh/-/jobs">Jobs
+</a></li>
+<li class="hidden">
+<a title="Commits" class="shortcuts-commits" href="https://gitlab.com/BlackEdder/painlessMesh/commits/master">Commits
+</a></li>
+<li class="hidden">
+<a title="Issue Boards" class="shortcuts-issue-boards" href="https://gitlab.com/BlackEdder/painlessMesh/boards">Issue Boards</a>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+<div class="content-wrapper page-with-layout-nav">
+<div class="alert-wrapper">
+
+
+<div class="flash-container flash-container-page">
+</div>
+
+
+</div>
+<div class=" ">
+<div class="content" id="content-body">
+<div class="container-fluid container-limited">
+<div class="wiki-page-header has-sidebar-toggle">
+<button class="btn btn-default sidebar-toggle js-sidebar-wiki-toggle" role="button" type="button">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-double-left"></i>
+</button>
+<div class="wiki-breadcrumb">
+<span>Home</span>
+</div>
+<div class="nav-text">
+<h2 class="wiki-page-title">Home</h2>
+<span class="wiki-last-edit-by">
+Last edited by
+<strong>
+Germán Martín
+</strong>
+<time class="js-timeago js-timeago-render" title="" datetime="2017-01-18T12:11:45Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Jan 18, 2017 12:11pm">5 months ago</time>
+</span>
+</div>
+<div class="nav-controls">
+<a class="btn" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home/history">Page history
+</a>
+</div>
+</div>
+<div class="wiki-holder prepend-top-default append-bottom-default">
+<div class="wiki">
+<h1 dir="auto">
+<a id="user-content-painlessmesh-technical-documentation" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#painlessmesh-technical-documentation" aria-hidden="true"></a>PainlessMesh Technical Documentation</h1>
+
+<p dir="auto">PainlessMesh creates a self organizing and repairing network where all nodes are connected. All nodes in the mesh are equal. The network uses a star topology, avoiding any circular paths. Messages between different nodes are sent in JSON format, making them easy to understand and produce. Information on the JSON schema used for the various messages can be found <a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol">here</a>.</p>
+
+<h1 dir="auto">
+<a id="user-content-list-of-features" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#list-of-features" aria-hidden="true"></a>List of features</h1>
+
+<ul dir="auto">
+<li>
+<strong>JSON</strong> based messages. They can be directly used on javascript code.</li>
+<li>Fairly easy setup.</li>
+<li>Usable on <strong>Arduino</strong> environment.</li>
+<li>Implemented as a layer-3 protocol. Connectionless and without confirmation.</li>
+<li>Totally <strong>asyncrhronous</strong>. No need to poll for new messages.</li>
+<li>
+<strong>Accurate time synchronization</strong>. All nodes share same clock with a precision better than 10 ms.</li>
+<li>All nodes know the complete topology instantly. Updated every 3 seconds.</li>
+<li>Mesh <strong>autoconfigure</strong> itself. Any node can be disconnected in any moment. Any new node is integrated automatically.</li>
+<li>All nodes continuously monitor its directly connected peers to check if they are active.</li>
+<li>Single addressed and broadcast messages are possible.</li>
+<li>Network loops are actively avoided.</li>
+<li>Prepared to run nodes on <strong>battery</strong> with limited functionality by using <code>sleep()</code> function.</li>
+</ul>
+
+<h2 dir="auto">
+<a id="user-content-network-layout" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#network-layout" aria-hidden="true"></a>Network layout</h2>
+
+<p dir="auto">Every node acts as an accesspoint (AP) for other nodes to connect to and as a client to connect to one AP of another node. There is a limit of 4 station nodes per AP. This limit is fixed by ESP8266 SDK.</p>
+
+<p dir="auto">Each node which is not already/anymore connected to an AP, scans for AP's from other nodes periodically. It will connect to the AP with the strongest signal, which is not already present in the list of connections or sub-connections, i.e. which is not known yet to the node. By only connecting to unknown APs the mesh avoids the creation of network loops, such that there is a single route between each pair of nodes in the mesh.</p>
+
+<p dir="auto"><a class="no-attachment-icon" href="./PainlessMesh Technical Documentation_files/sample.png" target="_blank" rel="noopener noreferrer"><img src="./PainlessMesh Technical Documentation_files/sample.png" alt="sample"></a>
+The direction of the arrow represents the direction in which connections are made.</p>
+
+<h2 dir="auto">
+<a id="user-content-node-sync" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#node-sync" aria-hidden="true"></a>Node Sync</h2>
+
+<p dir="auto">A list of connections of the node is stored and for each connection a list of sub-connections is also stored. (Note: the list of connections contains the connections which are received by the node and the connection (max 1) that are initiated by the node.). Every node knows the complete network topology.</p>
+
+<p dir="auto">The list of sub-connections per node is obtained by a request/response message. The request contains the sub-connections of the requesting node, and the response contains the sub-connections of the responding node. The collection of sub-connections returned, always excludes the requesting connection and its sub-connections. For more information see the <a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol#routing-information">protocol information</a></p>
+
+<p dir="auto">Cases in which a new node sync is done</p>
+
+<ul dir="auto">
+<li>Request for sub-connections is done periodically</li>
+<li>When any update in the network is detected, i.e. any sub-connection of a node has changed</li>
+<li>When a new node connects to a new AP </li>
+</ul>
+
+<h2 dir="auto">
+<a id="user-content-routing-messages" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#routing-messages" aria-hidden="true"></a>Routing messages</h2>
+
+<p dir="auto">With the star network topology without any loops. routing becomes very easy. There is a single route for each node pair.</p>
+
+<h3 dir="auto">
+<a id="user-content-single-messages" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#single-messages" aria-hidden="true"></a>SINGLE messages</h3>
+
+<p dir="auto">For single messages, a destination and origin node is specified. First the connection to use is looked up. Either the direct connection, or the connection which has a sub-connection to the destination node. The message is send to that node. When that node is not the destination node, the exact message is relayed to the next connection, which is looked up in the same way. This repeats until the message arrives at the destination node.</p>
+
+<p dir="auto">Messages are not acknowledged. This should be implemented at application level.</p>
+
+<h3 dir="auto">
+<a id="user-content-broadcast-messages" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#broadcast-messages" aria-hidden="true"></a>BROADCAST messages</h3>
+
+<p dir="auto">For broadcast messages, all connections are iterated and the message is sent to each connection. Upon receiving the broadcast message, the message is relayed to all connections of the receiving node, except for the connection by which the message is received.</p>
+
+<h1 dir="auto">
+<a id="user-content-mesh-protocol" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#mesh-protocol" aria-hidden="true"></a>Mesh Protocol</h1>
+
+<p dir="auto"><a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol">Protocol description</a></p>
+
+<h1 dir="auto">
+<a id="user-content-library-api" class="anchor" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#library-api" aria-hidden="true"></a>Library API</h1>
+
+<p dir="auto"><a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/api">API description</a></p>
+</div>
+</div>
+</div>
+<aside class="right-sidebar right-sidebar-expanded wiki-sidebar js-wiki-sidebar js-right-sidebar affix-top" data-offset-top="50" data-spy="affix" style="overflow: hidden; outline: none; height: 584px;" tabindex="0">
+<div class="block wiki-sidebar-header append-bottom-default">
+<a class="gutter-toggle pull-right visible-xs-block visible-sm-block js-sidebar-wiki-toggle" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-double-right"></i>
+</a>
+<a class="" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/git_access"><i aria-hidden="true" data-hidden="true" class="fa fa-cloud-download"></i>&nbsp;
+Clone repository
+</a></div>
+<div class="blocks-container">
+<div class="block block-first">
+<ul class="wiki-pages">
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/api">Api
+</a></li>
+
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/bridge-between-mesh-and-another-network">Bridge between mesh and another network
+</a></li>
+
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/bridge-setup-example">Bridge setup example
+</a></li>
+
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/connect-mode:-ap_only,-sta_only,-sta_ap-mode">Connect mode: ap_only, sta_only, sta_ap mode
+</a></li>
+
+<li class="active">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home">Home
+</a></li>
+
+<li class="">
+<a href="https://gitlab.com/BlackEdder/painlessMesh/wikis/mesh-protocol">Mesh protocol
+</a></li>
+
+
+</ul>
+</div>
+<div class="block">
+<a class="btn btn-block" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/pages">More Pages
+</a></div>
+</div>
+</aside>
+<div class="container-fluid container-limited">
+<div class="modal" id="modal-new-wiki">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<a class="close" data-dismiss="modal" href="https://gitlab.com/BlackEdder/painlessMesh/wikis/home#">×</a>
+<h3 class="page-title">New Wiki Page</h3>
+</div>
+<div class="modal-body">
+<form class="new-wiki-page">
+<div class="form-group">
+<label for="new_wiki_path"><span>Page slug</span>
+</label><input type="text" name="new_wiki_path" id="new_wiki_path" placeholder="how-to-setup" class="form-control" required="required" data-wikis-path="/BlackEdder/painlessMesh/wikis" autofocus="autofocus">
+<span class="new-wiki-page-slug-tip">
+<i aria-hidden="true" data-hidden="true" class="fa fa-lightbulb-o"></i>
+Tip: You can specify the full path for the new file.
+We will automatically create any missing directories.
+</span>
+</div>
+<div class="form-actions">
+<button name="button" type="submit" class="build-new-wiki btn btn-create">Create page</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+  new Sidebar();
+</script>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="device-xs visible-xs"></div><div class="device-sm visible-sm"></div><div class="device-md visible-md"></div><div class="device-lg visible-lg"></div><div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 7px; z-index: 200; cursor: default; position: absolute; top: 102px; left: 1512.2px; height: 735px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 7px; z-index: 200; top: 830px; left: 1230.2px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div></body><div id="cye-workaround-body" style="position: absolute; left: 0px; top: 0px; z-index: -2147483646; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255); height: 2235px; width: 1519px;"></div><div id="cye-workaround-body-image" style="position: absolute; left: 0px; top: 0px; z-index: -2147483645; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0); height: 2235px; width: 1519px;"></div></html>

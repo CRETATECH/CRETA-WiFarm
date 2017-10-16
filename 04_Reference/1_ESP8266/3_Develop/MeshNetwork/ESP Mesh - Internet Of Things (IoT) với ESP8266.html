@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/ -->
+<html class=" cye-disabled cye-nm js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface no-generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="../../../img/logo.png">
+
+  
+  <meta name="author" content="Tuan PM">
+  
+  <title>ESP Mesh - Internet Of Things (IoT) với ESP8266</title>
+  
+
+  <link rel="shortcut icon" href="https://esp8266.vn/img/favicon.ico">
+
+  
+  <link href="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/theme.css" type="text/css">
+  <link rel="stylesheet" href="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/theme_extra.css" type="text/css">
+  <link rel="stylesheet" href="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/highlight.css">
+
+  <link rel="stylesheet" href="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/custom.css">
+
+  
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script><script>
+    // Current page data
+    var mkdocs_page_name = "ESP Mesh";
+    var mkdocs_page_input_path = "nonos-sdk/esp-mesh/esp-mesh.md";
+    var mkdocs_page_url = "/nonos-sdk/esp-mesh/esp-mesh/";
+  </script><style id="nightModeStyle">
+html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
+ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) #cye-workaround-body {-webkit-filter:contrast(91%) brightness(84%) invert(1);}</style><style id="cyebody">html.cye-enabled.cye-lm body{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyediv">html.cye-enabled.cye-lm div{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyetable">html.cye-enabled.cye-lm th{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm td{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyetextInput">html.cye-enabled.cye-lm input[type=text]{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm textarea{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeselect">html.cye-enabled.cye-lm select{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeul">html.cye-enabled.cye-lm ul{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style><style id="cyeChangeByClick">html.cye-enabled.cye-lm .cye-lm-tag,html.cye-enabled.cye-lm.cye-lm-tag{background-color:#cce8cf !important;border-color:rgb(51, 58, 51) !important;background-image:none !important;color:#000000  !important}</style>
+  
+  <script src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/jquery-2.1.1.min.js.download"></script>
+  <script src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/modernizr-2.8.3.min.js.download"></script>
+  <script type="text/javascript" src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/highlight.pack.js.download"></script>
+  <script src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/theme.js.download"></script>
+  <script src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/jquery.cookie-1.4.1.min.js.download"></script>
+  <script src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/nav.js.download"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60470603-4', 'esp8266.vn');
+      ga('send', 'pageview');
+  </script>
+  
+</head><div id="cyeBlackMaskLayer" style="background-color: rgb(19, 19, 19); position: fixed; width: 1980px; height: 1080px; z-index: -2147483648;"></div>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="https://esp8266.vn/" class="icon icon-home"> Internet Of Things (IoT) với ESP8266</a>
+        <div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://esp8266.vn/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="https://esp8266.vn/" id="Trang chủ" style="font-size:95%;font-weight:bold;">Trang chủ</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+</li><li>
+          
+            </li><li><ul class="subnav">
+    <li class="current">
+        <a class="current" id="Nội dung" style="font-size:95%;font-weight:bold;">Nội dung</a>
+    </li>
+    
+        <li class="">
+            <a style="padding-left:50px;" class="" id="Kiến thức cơ bản" onclick="showChildren(&#39;Kiến thức cơ bản&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> Kiến thức cơ bản</a>
+        </li>
+        
+        <div style="display:none" id="hidden_Kiến thức cơ bản">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/introduction/introduction/" id="Tổng quan">  Tổng quan </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_Kiến thức cơ bảnTổng quan">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/introduction/about-iot/" id="Internet Of Things (IoT)">  Internet Of Things (IoT) </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_Kiến thức cơ bảnInternet Of Things (IoT)">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/introduction/about-esp8266/" id="ESP8266 &amp; ESP8285">  ESP8266 &amp; ESP8285 </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_Kiến thức cơ bảnESP8266 &amp; ESP8285">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/introduction/esp-module/" id="Các loại Module">  Các loại Module </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_Kiến thức cơ bảnCác loại Module">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/introduction/board/" id="Board phát triển">  Board phát triển </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_Kiến thức cơ bảnBoard phát triển">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/introduction/prepare/" id="Phần cứng &amp; công cụ">  Phần cứng &amp; công cụ </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_Kiến thức cơ bảnPhần cứng &amp; công cụ">
+            
+            </div>
+        
+        </div>
+    
+        <li class="current">
+            <a style="padding-left:50px;" class="current" id="ESP8266 NONOS-SDK" onclick="showChildren(&#39;ESP8266 NONOS-SDK&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP8266 NONOS-SDK</a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP8266 NONOS-SDK">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/nonos-sdk/nonos-sdk/" id="Giới thiệu">  Giới thiệu </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKGiới thiệu">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="Cơ bản" onclick="showChildren(&#39;ESP8266 NONOS-SDKCơ bản&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  Cơ bản </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKCơ bản">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/basic/" id="Cài đặt công cụ cần thiết">Cài đặt công cụ cần thiết </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/compile-first-time/" id="Biên dịch dự án mẫu">Biên dịch dự án mẫu </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/blink-led/" id="Bật tắt LED">Bật tắt LED </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/button/" id="Nút nhấn">Nút nhấn </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/uart/" id="UART">UART </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/complex-makefile/" id="Makefile cho dự án phức tạp">Makefile cho dự án phức tạp </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/task/" id="Task">Task </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/wifi/" id="Wifi">Wifi </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/espconn/" id="ESPCONN">ESPCONN </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/mdns/" id="MDNS">MDNS </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/ntp/" id="NTP">NTP </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/basic/save-to-flash/" id="Lưu dữ liệu vào Flash">Lưu dữ liệu vào Flash </a>
+                </li>
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="Smartconfig" onclick="showChildren(&#39;ESP8266 NONOS-SDKSmartconfig&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  Smartconfig </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKSmartconfig">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/smartconfig/smartconfig/" id="ESP8266 Smartconfig">ESP8266 Smartconfig </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/smartconfig/why-smartconfig/" id="Tại sao cần Smartconfig">Tại sao cần Smartconfig </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/smartconfig/esptouch/" id="ESPTOUCH &amp; AIRKISS">ESPTOUCH &amp; AIRKISS </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/smartconfig/wps/" id="WPS">WPS </a>
+                </li>
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="MQTT" onclick="showChildren(&#39;ESP8266 NONOS-SDKMQTT&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  MQTT </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKMQTT">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/mqtt/what-is-mqtt/" id="Giao thức MQTT">Giao thức MQTT </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/mqtt/mqtt-client/" id="ESP8266 MQTT Client">ESP8266 MQTT Client </a>
+                </li>
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="HTTP Client" onclick="showChildren(&#39;ESP8266 NONOS-SDKHTTP Client&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  HTTP Client </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKHTTP Client">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/http-client/http-client/" id="ESP8266 HTTP Client">ESP8266 HTTP Client </a>
+                </li>
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="HTTP Server" onclick="showChildren(&#39;ESP8266 NONOS-SDKHTTP Server&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  HTTP Server </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKHTTP Server">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/http-server/http-server/" id="ESP8266 HTTP Server">ESP8266 HTTP Server </a>
+                </li>
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="Firmware Over The Air" onclick="showChildren(&#39;ESP8266 NONOS-SDKFirmware Over The Air&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  Firmware Over The Air </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKFirmware Over The Air">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/fota/fota/" id="FOTA">FOTA </a>
+                </li>
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="ESP Now" onclick="showChildren(&#39;ESP8266 NONOS-SDKESP Now&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  ESP Now </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKESP Now">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/esp-now/esp-now/" id="ESP Now">ESP Now </a>
+                </li>
+            
+            </div>
+        
+            <li class="current">
+                <a style="padding-left:70px;" class="current" id="ESP Mesh" onclick="showChildren(&#39;ESP8266 NONOS-SDKESP Mesh&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  ESP Mesh </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKESP Mesh">
+            
+                <li class="current">
+                    <a style="padding-left:90px;" class="current" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/" id="ESP Mesh">ESP Mesh </a>
+                </li>
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="Các dự án" onclick="showChildren(&#39;ESP8266 NONOS-SDKCác dự án&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  Các dự án </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 NONOS-SDKCác dự án">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/nonos-sdk/projects/list/" id="Danh sách">Danh sách </a>
+                </li>
+            
+            </div>
+        
+        </div>
+    
+        <li class="">
+            <a style="padding-left:50px;" class="" id="ESP8266 FreeRTOS-SDK" onclick="showChildren(&#39;ESP8266 FreeRTOS-SDK&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP8266 FreeRTOS-SDK</a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP8266 FreeRTOS-SDK">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/freertos-sdk/freertos-sdk/" id="Giới thiệu">  Giới thiệu </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 FreeRTOS-SDKGiới thiệu">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="Cơ bản" onclick="showChildren(&#39;ESP8266 FreeRTOS-SDKCơ bản&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  Cơ bản </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 FreeRTOS-SDKCơ bản">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/freertos-sdk/basic/introduction/" id="Cài đặt công cụ cần thiết">Cài đặt công cụ cần thiết </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/freertos-sdk/basic/basic-task/" id="Task cơ bản">Task cơ bản </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/freertos-sdk/basic/software-timer/" id="Software Timer">Software Timer </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/freertos-sdk/basic/queue-semaphore-mutex/" id="Đồng bộ / trao đổi dữ liệu">Đồng bộ / trao đổi dữ liệu </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/freertos-sdk/basic/task-notification/" id="Task notification">Task notification </a>
+                </li>
+            
+            </div>
+        
+        </div>
+    
+        <li class="">
+            <a style="padding-left:50px;" class="" id="ESP8266 Arduino" onclick="showChildren(&#39;ESP8266 Arduino&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP8266 Arduino</a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP8266 Arduino">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/arduino/arduino/" id="Giới thiệu">  Giới thiệu </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 ArduinoGiới thiệu">
+            
+            </div>
+        
+        </div>
+    
+        <li class="">
+            <a style="padding-left:50px;" class="" id="ESP8266 Micropython" onclick="showChildren(&#39;ESP8266 Micropython&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP8266 Micropython</a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP8266 Micropython">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="https://esp8266.vn/micropython/micropython/" id="Giới thiệu">  Giới thiệu </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 MicropythonGiới thiệu">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" id="Cơ bản" onclick="showChildren(&#39;ESP8266 MicropythonCơ bản&#39;)"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  Cơ bản </a>
+                <!--  -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP8266 MicropythonCơ bản">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="https://esp8266.vn/micropython/basic/introduction/" id="Cài đặt công cụ cần thiết">Cài đặt công cụ cần thiết </a>
+                </li>
+            
+            </div>
+        
+        </div>
+    
+    <li class="paddingtop20"></li>
+</ul>
+</li><li>
+          
+            </li><li><ul class="subnav">
+    <li class="">
+        <a class="" href="https://esp8266.vn/projects/list/" id="Các dự án" style="font-size:95%;font-weight:bold;">Các dự án</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+</li><li>
+          
+            </li><li><ul class="subnav">
+    <li class="">
+        <a class="" href="https://esp8266.vn/license/" id="Bản quyền" style="font-size:95%;font-weight:bold;">Bản quyền</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+</li><li>
+          
+            </li><li><ul class="subnav">
+    <li class="">
+        <a class="" href="https://esp8266.vn/contributor/" id="Đóng góp" style="font-size:95%;font-weight:bold;">Đóng góp</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+</li><li>
+          
+        </li></ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="https://esp8266.vn/">Internet Of Things (IoT) với ESP8266</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+    <ul class="wy-breadcrumbs">
+        <li><a href="https://esp8266.vn/">Docs</a> »</li>
+          
+        <li>ESP8266 NONOS-SDK »</li>
+          
+        <li>ESP Mesh »</li>
+           
+        <li>ESP Mesh</li>
+        <li class="wy-breadcrumbs-aside">
+             
+                
+            <a href="https://github.com/esp8266vn/esp8266.vn/tree/master/docs/nonos-sdk/esp-mesh/esp-mesh.md" class="icon icon-github"> Edit on GitHub</a>
+                
+             
+        </li>
+    </ul>
+    <hr>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="toc">
+<ul>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#gioi-thieu">Giới thiệu</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#mot-so-inh-nghia">Một số định nghĩa</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cau-truc-mang">Cấu trúc mạng</a><ul>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#so-o-mang-mesh">Sơ đồ mạng mesh</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cac-node-trong-mang">Các node trong mạng</a></li>
+</ul>
+</li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cac-header-trong-mesh">Các header trong Mesh</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cau-truc-goi-tin">Cấu trúc gói tin</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#vi-du-goi-tin-gui-nhan">Ví dụ gói tin gửi/ nhận</a><ul>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#goi-tin-request">Gói tin request</a></li>
+</ul>
+</li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#goi-tin-response">Gói tin response</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cau-truc-du-lieu">Cấu trúc dữ liệu</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#chuong-trinh">Chương trình</a><ul>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#device">Device</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#mobile-hoac-server">Mobile hoặc Server</a></li>
+</ul>
+</li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#lay-topology">Lấy topology</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#phan-tich-phan-hoi-tu-topology">Phân tích phản hồi từ topology</a></li>
+<li><a href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#tham-khao">Tham khảo</a></li>
+</ul>
+</div>
+<h1 id="gioi-thieu">Giới thiệu<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#gioi-thieu" title="Permanent link">#</a></h1>
+<p><img alt="Mesh Info" src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/mesh-info.png">
+Trong quá trình phát triển IoT thường đòi hỏi việc tăng số lượng node kết nối với Internet.Nhược điểm lớn nhất là số lượng node có thể trực tiếp kết nối tới router bị giới hạn nhỏ hơn 32 node. Để khắc phục điểm này thì Espressif đã phát triển giao thức ESP-MESH. Trong giao thức này node có thể tạo ra mạng để chuyển tiếp gói tin, nhờ đó mà một số lượng lớn node có thể kết nối Internet mà không cần phải cải tiến, nâng cấp router.</p>
+<h1 id="mot-so-inh-nghia">Một số định nghĩa<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#mot-so-inh-nghia" title="Permanent link">#</a></h1>
+<ul>
+<li>IOT Espressif App: ứng dụng của Espressif dùng để điều khiển từ xa các thiết bị Wifi</li>
+<li>ESP-Touch: công nghệ để kết nối Wifi device với router</li>
+<li>Smart Config Mode cho ESP-Touch: cấu hình cho Wifi device dùng ESP-Touch thông qua Mode Smart Config.</li>
+<li>
+<p>Local Device: thiết bị được người dùng cấu hình kết nối với router thông qua ESP-Touch mà không kích hoạt trên server, chỉ có thể điều khiển thông qua mạng cục bộ
+<img alt="Local NetWork" src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/local-network.png"></p>
+</li>
+<li>
+<p>Cloud Device: giống như Local Device nhưng được kích hoạt trên server, có thể điều khiển ở mọi nơi có mạng internet.
+<img alt="Cloud NetWork" src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/cloud-network.png"></p>
+</li>
+</ul>
+<h1 id="cau-truc-mang">Cấu trúc mạng<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cau-truc-mang" title="Permanent link">#</a></h1>
+<p>Mạng Mesh hỗ trợ chức năng auto-networking. Khi người dùng thiết lập mạng mesh thông qua ESP-Touch thì thiết bị sẽ tự động tìm các Wifi AP gần kề.</p>
+<h2 id="so-o-mang-mesh">Sơ đồ mạng mesh<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#so-o-mang-mesh" title="Permanent link">#</a></h2>
+<p><img alt="Mesh NetWork" src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/mesh-network.png"></p>
+<ul>
+<li>Các node sẽ kết nối trực tiếp tới router được gọi là root node, các node khác thì được gọi là non-root node.</li>
+<li>Online-Mesh: Khi router kết nối với internet thì ta có thể dùng IOT App để điều khiển từ xa ở bất kỳ đâu</li>
+<li>Local-Mesh: Bạn chỉ có thể điều khiển Local Device trong mạng thông qua router.</li>
+</ul>
+<h2 id="cac-node-trong-mang">Các node trong mạng<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cac-node-trong-mang" title="Permanent link">#</a></h2>
+<ul>
+<li>Root Node<ul>
+<li>Nhận và gửi gói tin</li>
+<li>Chuyển tiếp gói tin từ server, ứng dụng mobile và các node con của nó</li>
+</ul>
+</li>
+<li>None-root Node<ul>
+<li>Non-leaf node: Nhận và gửi gói tin, chuyển tiếp gói tin từ node cha và các node con khác</li>
+<li>Leaf node: Chỉ được nhận và gửi gói tin, không có chức năng chuyển tiếp.</li>
+</ul>
+</li>
+</ul>
+<h1 id="cac-header-trong-mesh">Các header trong Mesh<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cac-header-trong-mesh" title="Permanent link">#</a></h1>
+<p><img alt="Mesh Header" src="./ESP Mesh - Internet Of Things (IoT) với ESP8266_files/mesh-header.png"></p>
+<p>Mô tả</p>
+<table class="docutils">
+<thead>
+<tr>
+<th>Tên trường</th>
+<th>Độ dài</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ver</td>
+<td>2 bit</td>
+<td>Thông tin Mesh</td>
+</tr>
+<tr>
+<td>o</td>
+<td>1 bit</td>
+<td>Tùy chọn flag</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>5 bit</td>
+<td>FP</td>
+</tr>
+<tr>
+<td></td>
+<td>FP</td>
+<td>Cho phép Piggyback flow trong gói tin</td>
+</tr>
+<tr>
+<td></td>
+<td>FR</td>
+<td>Yêu cầu,Piggyback flow trong gói tin</td>
+</tr>
+<tr>
+<td></td>
+<td>resv</td>
+<td>Dự phòng</td>
+</tr>
+<tr>
+<td></td>
+<td>8 bit</td>
+<td>D</td>
+</tr>
+<tr>
+<td></td>
+<td>D</td>
+<td>Chiều của gói tin: 0: xuống (downward) 1: lên (upward)</td>
+</tr>
+<tr>
+<td></td>
+<td>P2P</td>
+<td>Gói tin từ Node tới Node</td>
+</tr>
+<tr>
+<td></td>
+<td>protocol</td>
+<td>Giao thức gửi dữ liệu được quy định bởi người dùng(6bit)</td>
+</tr>
+<tr>
+<td>len</td>
+<td>2 byte</td>
+<td>Chiều dài của gói tin (bao gồm cả mesh header)</td>
+</tr>
+<tr>
+<td>dst_addr</td>
+<td>6 bytes</td>
+<td>Địa chỉ đích</td>
+</tr>
+<tr>
+<td>src_addr</td>
+<td>6 bytes</td>
+<td>Địa chỉ nguồn</td>
+</tr>
+<tr>
+<td>ot_len</td>
+<td></td>
+<td>Độ dài của option (gồm cả chính nó)</td>
+</tr>
+<tr>
+<td>option_list</td>
+<td></td>
+<td>Danh sách các thành phần của các option</td>
+</tr>
+<tr>
+<td>otype</td>
+<td>1 byte</td>
+<td>Kiểu option</td>
+</tr>
+<tr>
+<td>olen</td>
+<td>1 byte</td>
+<td>Chiều dài của option hiện tịa</td>
+</tr>
+<tr>
+<td>ovalue</td>
+<td>Người dùng định nghĩa</td>
+<td>Giá trị option hiện tại</td>
+</tr>
+</tbody>
+</table>
+<h1 id="cau-truc-goi-tin">Cấu trúc gói tin<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cau-truc-goi-tin" title="Permanent link">#</a></h1>
+<p>Mạng mesh được định nghĩa bởi cấu trúc trong mesh_option_type</p>
+<pre><code class="hljs sql">    enum mesh_option_type {
+    M_O_FLOW_REQ = 0,   //flow request option
+    M_O_FLOW_RESP,      //flow response option
+    M_O_ROUTER_SPREAD,  //router information spread option
+    M_O_ROUTE_ADD,      //route table <span class="hljs-operator"><span class="hljs-keyword">update</span> (node joins mesh) <span class="hljs-keyword">option</span>
+    M_O_ROUTE_DEL,      //route <span class="hljs-keyword">table</span> <span class="hljs-keyword">update</span> (node exits mesh) <span class="hljs-keyword">option</span>
+    M_O_TOPO_REQ,       //topology request <span class="hljs-keyword">option</span>
+    M_O_TOPO_RESP,      //topology response <span class="hljs-keyword">option</span>
+    M_O_MCAST_GRP,      //<span class="hljs-keyword">group</span> list <span class="hljs-keyword">of</span> mcast
+    M_O_MESH_FRAG,      //mesh management fragmentation <span class="hljs-keyword">option</span>
+    M_O_USR_FRAG,       //<span class="hljs-keyword">user</span> <span class="hljs-keyword">data</span> fragmentation
+    M_O_USR_OPTION,     //<span class="hljs-keyword">user</span> <span class="hljs-keyword">option</span>
+    };</span>
+</code></pre>
+
+<table class="docutils">
+<thead>
+<tr>
+<th>Tên trường</th>
+<th>Độ dài</th>
+<th>Mô tả</th>
+<th>Định dạng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M_O_FLOW_REQ</td>
+<td>2 Bytes</td>
+<td>Dùng cho flow request</td>
+<td>otype</td>
+</tr>
+<tr>
+<td>M_O_FLOW_RESP</td>
+<td>6 Bytes</td>
+<td>Dùng cho phản hồi tới flow</td>
+<td>otype</td>
+</tr>
+<tr>
+<td>M_O_ROUTER_SPREAD</td>
+<td>106 Bytes</td>
+<td>Dùng spread thông tin từ router</td>
+<td>otype</td>
+</tr>
+<tr>
+<td>M_O_ROUTE_ADD</td>
+<td>6*n+2Bytes</td>
+<td>Dùng để cập nhật bảng định tuyến khi có node mới tham gia vào mạng</td>
+<td>otype</td>
+</tr>
+<tr>
+<td>M_O_ROUTE_DEL</td>
+<td>6*n+2Bytes</td>
+<td>Dùng để cập nhật bảng định tuyến khi có node rời mạng</td>
+<td>otype</td>
+</tr>
+<tr>
+<td>M_O_TOPO_REQ</td>
+<td>8 Bytes</td>
+<td>Sử dụng để lấy topo của mạng mesh</td>
+<td>otype</td>
+</tr>
+<tr>
+<td>M_O_TOPO_RESP</td>
+<td>6*n+2Bytes</td>
+<td>Sử dụng để nhận phản hồi topo của mạng mesh</td>
+<td>otype</td>
+</tr>
+</tbody>
+</table>
+<h1 id="vi-du-goi-tin-gui-nhan">Ví dụ gói tin gửi/ nhận<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#vi-du-goi-tin-gui-nhan" title="Permanent link">#</a></h1>
+<h3 id="goi-tin-request">Gói tin request<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#goi-tin-request" title="Permanent link">#</a></h3>
+<table class="docutils">
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+<th>e</th>
+<th>f</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00000000h</td>
+<td>04</td>
+<td>01</td>
+<td>14</td>
+<td>00</td>
+<td>18</td>
+<td>FE</td>
+<td>34</td>
+<td>A5</td>
+<td>3B</td>
+<td>AD</td>
+<td>18</td>
+<td>FE</td>
+<td>34</td>
+<td>A2</td>
+<td>C7</td>
+<td>76</td>
+</tr>
+<tr>
+<td>00000010h</td>
+<td>04</td>
+<td>00</td>
+<td>00</td>
+<td>02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Mô tả</p>
+<table class="docutils">
+<thead>
+<tr>
+<th>Tên trường</th>
+<th>Giá trị</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>head.ver</td>
+<td>00</td>
+<td>Phiên bản hiện tại của mesh là 00</td>
+</tr>
+<tr>
+<td>head.O</td>
+<td>1</td>
+<td>Có option trong gói tin</td>
+</tr>
+<tr>
+<td>head.flags.FP</td>
+<td>0</td>
+<td>Không có piggyback flow permit</td>
+</tr>
+<tr>
+<td>head.flags.FR</td>
+<td>0</td>
+<td>Không có piggyback flow request</td>
+</tr>
+<tr>
+<td>head.flags.resv</td>
+<td>000</td>
+<td>Dự phòng</td>
+</tr>
+<tr>
+<td>head.proto.D</td>
+<td>1</td>
+<td>Upwards</td>
+</tr>
+<tr>
+<td>head.proto.P2P</td>
+<td>0</td>
+<td>Không có gói từ node tới node</td>
+</tr>
+<tr>
+<td>head.proto.protocol</td>
+<td>000000</td>
+<td>Gói tin quản lý mesh</td>
+</tr>
+<tr>
+<td>head.len</td>
+<td>0x0014</td>
+<td>Chiều dài của gói tin là 20 byte</td>
+</tr>
+<tr>
+<td>head.dst_addr</td>
+<td>18 FE 34 A5 3B AD</td>
+<td>Địa chỉ MAC của destination device</td>
+</tr>
+<tr>
+<td>head.src_addr</td>
+<td>18 FE 34 A2 C7 76</td>
+<td>Địa chỉ MAC của source device</td>
+</tr>
+<tr>
+<td>head.ot_len</td>
+<td>0x0004</td>
+<td>Chiều dài của option là 0x0004</td>
+</tr>
+<tr>
+<td>head.option_list[0].otype</td>
+<td>0x00</td>
+<td>M_FLOW_REQ</td>
+</tr>
+<tr>
+<td>head.option_list[0].olen</td>
+<td>0x02</td>
+<td>Option length là 0x02</td>
+</tr>
+</tbody>
+</table>
+<h1 id="goi-tin-response">Gói tin response<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#goi-tin-response" title="Permanent link">#</a></h1>
+<table class="docutils">
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+<th>e</th>
+<th>f</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00000000h</td>
+<td>04</td>
+<td>00</td>
+<td>18</td>
+<td>00</td>
+<td>18</td>
+<td>FE</td>
+<td>34</td>
+<td>A2</td>
+<td>C7</td>
+<td>76</td>
+<td>18</td>
+<td>FE</td>
+<td>34</td>
+<td>A5</td>
+<td>3B</td>
+<td>AD</td>
+</tr>
+<tr>
+<td>00000010h</td>
+<td>08</td>
+<td>00</td>
+<td>01</td>
+<td>06</td>
+<td>01</td>
+<td>00</td>
+<td>00</td>
+<td>00</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Mô tả</p>
+<table class="docutils">
+<thead>
+<tr>
+<th>Tên trường</th>
+<th>Giá trị</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>head.ver</td>
+<td>00</td>
+<td>Phiên bản hiện tại của mesh là 00</td>
+</tr>
+<tr>
+<td>head.O</td>
+<td>1</td>
+<td>Có option trong gói tin</td>
+</tr>
+<tr>
+<td>head.flags.FP</td>
+<td>0</td>
+<td>Không có piggyback flow permit</td>
+</tr>
+<tr>
+<td>head.flags.FR</td>
+<td>0</td>
+<td>Không có piggyback flow request</td>
+</tr>
+<tr>
+<td>head.flags.resv</td>
+<td>000</td>
+<td>Dự phòng</td>
+</tr>
+<tr>
+<td>head.proto.D</td>
+<td>0</td>
+<td>Downwards.</td>
+</tr>
+<tr>
+<td>head.proto.P2P</td>
+<td>0</td>
+<td>Không có gói từ node tới node</td>
+</tr>
+<tr>
+<td>head.proto.protocol</td>
+<td>000000</td>
+<td>Gói tin quản lý mesh</td>
+</tr>
+<tr>
+<td>head.len</td>
+<td>0x0015</td>
+<td>Chiều dài của gói tin là 21 byte</td>
+</tr>
+<tr>
+<td>head.dst_addr</td>
+<td>18 FE 34 A2 C7 76</td>
+<td>Địa chỉ MAC của destination device</td>
+</tr>
+<tr>
+<td>head.src_addr</td>
+<td>18 FE 34 A5 3B AD</td>
+<td>Địa chỉ MAC của source device</td>
+</tr>
+<tr>
+<td>head.ot_len</td>
+<td>0x0008</td>
+<td>Chiều dài của option là 0x0008</td>
+</tr>
+<tr>
+<td>head.option_list[0].otype</td>
+<td>0x01</td>
+<td>M_FLOW_RESP</td>
+</tr>
+<tr>
+<td>head.option_list[0].olen</td>
+<td>0x06</td>
+<td>Option length là 0x06</td>
+</tr>
+<tr>
+<td>head.option_list[0].ovalue</td>
+<td>0x01</td>
+<td>Option value là 0x00000001, flow capacity là 0x00000001.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="cau-truc-du-lieu">Cấu trúc dữ liệu<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#cau-truc-du-lieu" title="Permanent link">#</a></h1>
+<ul>
+<li>Định dạng mesh header </li>
+</ul>
+<pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> mesh_header_format {
+    <span class="hljs-keyword">uint8_t</span> ver: <span class="hljs-number">2</span>; <span class="hljs-comment">// version of mesh</span>
+    <span class="hljs-keyword">uint8_t</span> oe: <span class="hljs-number">1</span>; <span class="hljs-comment">// option flag</span>
+    <span class="hljs-keyword">uint8_t</span> fp: <span class="hljs-number">1</span>; <span class="hljs-comment">// piggyback flow permit in packet</span>
+    <span class="hljs-keyword">uint8_t</span> fr: <span class="hljs-number">1</span>; <span class="hljs-comment">// piggyback flow request in packet</span>
+    <span class="hljs-keyword">uint8_t</span> rsv: <span class="hljs-number">3</span>; <span class="hljs-comment">// reserved</span>
+    <span class="hljs-keyword">struct</span> {
+        <span class="hljs-keyword">uint8_t</span> d: <span class="hljs-number">1</span>; <span class="hljs-comment">// direction, 1:upwards, 0:downwards</span>
+        <span class="hljs-keyword">uint8_t</span> p2p: <span class="hljs-number">1</span>; <span class="hljs-comment">// node to node packet</span>
+        <span class="hljs-keyword">uint8_t</span> protocol: <span class="hljs-number">6</span>; <span class="hljs-comment">// protocol used by user data</span>
+    } proto;
+    <span class="hljs-keyword">uint16_t</span> len; <span class="hljs-comment">// packet total length</span>
+    (mesh header included)
+    <span class="hljs-keyword">uint8_t</span> dst_addr[ESP_MESH_ADDR_LEN]; <span class="hljs-comment">// destination address</span>
+    <span class="hljs-keyword">uint8_t</span> src_addr[ESP_MESH_ADDR_LEN]; <span class="hljs-comment">// source address</span>
+    <span class="hljs-keyword">struct</span> mesh_header_option_header_type option[<span class="hljs-number">0</span>]; <span class="hljs-comment">// mesh option</span>
+} __packed;
+</code></pre>
+
+<ul>
+<li>Định dạng mesh Option header </li>
+</ul>
+<pre><code class="hljs thrift"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">mesh_header_option_header_type</span> </span>{
+    uint16_t ot_len; <span class="hljs-comment">// option total length</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">mesh_header_option_format</span> olist[0]; // option list
+} __packed;
+</span></code></pre>
+
+<ul>
+<li>Định dạng mesh Option </li>
+</ul>
+<pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> mesh_header_option_format {
+    <span class="hljs-keyword">uint8_t</span> otype; <span class="hljs-comment">// option type</span>
+    <span class="hljs-keyword">uint8_t</span> olen; <span class="hljs-comment">// current option length</span>
+    <span class="hljs-keyword">uint8_t</span> ovalue[<span class="hljs-number">0</span>]; <span class="hljs-comment">// option value</span>
+} __packed;
+</code></pre>
+
+<ul>
+<li>Định dạng mesh Option Fragmentation</li>
+</ul>
+<pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> mesh_header_option_frag_format {
+    <span class="hljs-keyword">uint16_t</span> id; <span class="hljs-comment">// identity of fragmentation</span>
+    <span class="hljs-keyword">struct</span> {
+        <span class="hljs-keyword">uint16_t</span> resv: <span class="hljs-number">1</span>; <span class="hljs-comment">// reserved</span>
+        <span class="hljs-keyword">uint16_t</span> mf: <span class="hljs-number">1</span>; <span class="hljs-comment">// more fragmentation</span>
+        <span class="hljs-keyword">uint16_t</span> idx: <span class="hljs-number">14</span>; <span class="hljs-comment">// fragmentation offset</span>
+    } offset;
+} __packed;
+</code></pre>
+
+<ul>
+<li>Định dạng Mesh Callback</li>
+</ul>
+<pre><code class="hljs nimrod">typedef <span class="hljs-type">void</span> (* espconn_mesh_callback)(int8_t <span class="hljs-literal">result</span>);
+</code></pre>
+
+<ul>
+<li>Định dạng Mesh Scan Callback</li>
+</ul>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">typedef</span> <span class="hljs-title">void</span> <span class="hljs-params">(* espconn_mesh_scan_callback)</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *arg, <span class="hljs-keyword">int8_t</span>
+status)</span></span>;
+</code></pre>
+
+<ul>
+<li>Định dạng Mesh Scan User Callback</li>
+</ul>
+<pre><code class="hljs objectivec"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">void</span> (* espconn_mesh_usr_callback)(<span class="hljs-keyword">void</span> *arg);
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Lưu ý</p>
+<p>Các API của packet có thể tham khảo tại <a href="http://www.espressif.com/en/support/download/documents#overlay=en/admin/content">API</a></p>
+</div>
+<h1 id="chuong-trinh">Chương trình<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#chuong-trinh" title="Permanent link">#</a></h1>
+<h2 id="device">Device<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#device" title="Permanent link">#</a></h2>
+<h2 id="mobile-hoac-server">Mobile hoặc Server<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#mobile-hoac-server" title="Permanent link">#</a></h2>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">controller_entrance</span><span class="hljs-params">(Parameter <span class="hljs-built_in">list</span>)</span>
+</span>{
+    <span class="hljs-comment">/*Add your codes to check status*/</span>
+    <span class="hljs-comment">/*Add your codes to build control packet*/</span>
+    <span class="hljs-keyword">uint8_t</span> json_control_data[] = {<span class="hljs-comment">/*Add your codes*/</span>};
+    <span class="hljs-keyword">uint16_t</span> control_data_len = <span class="hljs-keyword">sizeof</span>(json_control_data)
+                                <span class="hljs-keyword">struct</span> mesh_header_format * mesh_header = NULL;
+    <span class="hljs-comment">/* src_addr should be the combination of IP and port of
+    Mobile or Server. You can set the address to zero, then the
+    root device will fill in the section. If you fill in the
+    section by yourself, please make sure the value is right.*/</span>
+    <span class="hljs-keyword">uint8_t</span> src_addr[] = {<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>},
+                         dst_addr[] = {xx, xx, xx, xx, xx, xx};
+    mesh_header = (<span class="hljs-keyword">struct</span> mesh_header_format
+                   *)espconn_mesh_create_packet(dst_addr, src_addr, <span class="hljs-keyword">false</span>, <span class="hljs-keyword">true</span>,
+                           M_PROTO_JSON, control_data_len,
+                           <span class="hljs-keyword">false</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">false</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">false</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">if</span> (!mesh_header)
+    {
+        <span class="hljs-built_in">printf</span>(“alloc resp packet fail\n”);
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">if</span> (espconn_mesh_set_usr_data(mesh_header,
+                                  resp_json_packet_body, resp_data_len))
+    {
+        <span class="hljs-built_in">printf</span>(“<span class="hljs-built_in">set</span> user data fail\n”);
+        <span class="hljs-built_in">free</span>(mesh_header);
+        <span class="hljs-keyword">return</span>;
+    }
+<span class="hljs-comment">// sent control packet</span>
+    espconn_mesh_sent(esp, mesh_header, mesh_header-&gt;len);
+    <span class="hljs-built_in">free</span>(mesh_header);
+}
+</code></pre>
+
+<h1 id="lay-topology">Lấy topology<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#lay-topology" title="Permanent link">#</a></h1>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">topology_entrance</span><span class="hljs-params">(Parameter <span class="hljs-built_in">list</span>)</span>
+</span>{
+    <span class="hljs-comment">/*Add your codes to check status*/</span>
+    <span class="hljs-comment">/*Add your codes to build getting topology packet*/</span>
+    <span class="hljs-keyword">bool</span> res;
+    <span class="hljs-keyword">struct</span> mesh_header_format *mesh_header = NULL;
+    <span class="hljs-keyword">struct</span> mesh_header_option_format *topo_option = NULL;
+    <span class="hljs-keyword">uint8_t</span> src_addr[] = {<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>};
+    <span class="hljs-keyword">uint8_t</span> dst_addr[] = {xx, xx, xx, xx, xx, xx}; <span class="hljs-comment">// MAC address of root</span>
+    device
+    <span class="hljs-keyword">uint8_t</span> dev_mac[<span class="hljs-number">6</span>] = {xx, xx, xx, xx, xx, xx}; <span class="hljs-comment">// zero represents</span>
+    topology of all devices
+    <span class="hljs-keyword">uint16_t</span> ot_len = <span class="hljs-keyword">sizeof</span>(*topo_option) + <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span>
+                      mesh_header_option_header_type) + <span class="hljs-keyword">sizeof</span>(dev_mac);
+    mesh_header = (<span class="hljs-keyword">struct</span> mesh_header_format
+                   *)espconn_mesh_create_packet(
+                      dst_addr, src_addr, <span class="hljs-keyword">false</span>, <span class="hljs-keyword">true</span>, M_PROTO_NONE, <span class="hljs-number">0</span>,
+                      <span class="hljs-keyword">true</span>, ot_len, <span class="hljs-keyword">false</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">false</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">if</span> (!mesh_header) {
+        <span class="hljs-built_in">printf</span>(“alloc resp packet fail\n”);
+        <span class="hljs-keyword">return</span>;
+    }
+    topo_option = (<span class="hljs-keyword">struct</span> mesh_header_option_format
+                   *)espconn_mesh_create_option(
+                      M_O_TOPO_REQ, dev_mac, <span class="hljs-keyword">sizeof</span>(dev_mac));
+    <span class="hljs-keyword">if</span> (!topo_option) {
+        <span class="hljs-built_in">printf</span>(“alloc topo option fail\n”);
+        <span class="hljs-built_in">free</span>(mesh_header);
+        <span class="hljs-keyword">return</span>;
+    }
+    res = espconn_mesh_add_option(mesh_header, topo_option);
+    <span class="hljs-built_in">free</span>(topo_option);
+    <span class="hljs-keyword">if</span> (res) {
+        <span class="hljs-built_in">printf</span>(“add topo option fail\n”);
+        <span class="hljs-built_in">free</span>(mesh_header);
+        <span class="hljs-keyword">return</span>;
+    }
+<span class="hljs-comment">// send packet of getting topology</span>
+    espconn_mesh_sent(esp, mesh_header, mesh_header-&gt;len);
+    <span class="hljs-built_in">free</span>(mesh_header);
+}
+</code></pre>
+
+<h1 id="phan-tich-phan-hoi-tu-topology">Phân tích phản hồi từ topology<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#phan-tich-phan-hoi-tu-topology" title="Permanent link">#</a></h1>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">topology_parser_entrance</span><span class="hljs-params">(<span class="hljs-keyword">uint8_t</span> *topo_resp, <span class="hljs-keyword">uint16_t</span> len)</span>
+</span>{
+    <span class="hljs-comment">/*Add your codes to check parameter*/</span>
+    <span class="hljs-keyword">uint16_t</span> oidx = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">struct</span> mesh_header_format *mesh_header = NULL;
+    <span class="hljs-keyword">struct</span> mesh_header_option_format *topo_option = NULL;
+    mesh_header = (<span class="hljs-keyword">struct</span> mesh_header_format *)topo_resp;
+    <span class="hljs-keyword">if</span> (!mesh_header-&gt;oe) {
+        <span class="hljs-built_in">printf</span>(“no option exist\n”);
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-comment">/* you need parse all the options one by one in the packet header
+    */</span>
+    <span class="hljs-keyword">while</span> (espconn_mesh_get_option(mesh_header, M_O_TOPO_RESP,
+                                   oidx++, &amp;topo_option)) {
+        <span class="hljs-keyword">uint16_t</span> dev_count = topo_option-&gt;olen / <span class="hljs-number">6</span>;
+        process_dev_list(topo_option-&gt;ovalue, dev_count);
+    }
+}
+</code></pre>
+
+<h1 id="tham-khao">Tham khảo<a class="headerlink" href="https://esp8266.vn/nonos-sdk/esp-mesh/esp-mesh/#tham-khao" title="Permanent link">#</a></h1>
+<ul>
+<li><a href="https://espressif.com/en/products/software/esp-mesh/overview">ESP-MESH</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="https://esp8266.vn/nonos-sdk/projects/list/" class="btn btn-neutral float-right" title="Danh sách">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="https://esp8266.vn/nonos-sdk/esp-now/esp-now/" class="btn btn-neutral" title="ESP Now"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright © 2016 <a href="https://esp8266.vn/">ESP8266 Viet Nam</a> - Tài trợ bởi <a href="https://iotmaker.vn/">IoT Maker Viet Nam</a></p>
+    
+  </div>
+
+  
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<!-- <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/esp8266vn/esp8266.vn" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../esp-now/esp-now/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../projects/list/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div> -->
+
+<script type="text/javascript">
+  // If cookie is defined toggle the id
+  if (typeof $.cookie('docToggle') !== 'undefined') {
+      // Parse cookie which is an array
+      var _parsed_cookie = JSON.parse($.cookie('docToggle'));
+      // Loop over array and show hidden divs
+      $.each(_parsed_cookie, function(index, value) {
+          // Toggle
+          $("[id='hidden_" + value + "']").css('display','');
+      })
+  }
+</script>
+
+
+</body><div id="cye-workaround-body" style="position: absolute; left: 0px; top: 0px; z-index: -2147483646; background: none 0% 50% / 300px 1px repeat-y scroll padding-box border-box rgb(252, 252, 252); height: 9797px; width: 1519px;"></div><div id="cye-workaround-body-image" style="position: absolute; left: 0px; top: 0px; z-index: -2147483645; background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxOERBMTRGRDBFMUUxMUUzODUwMkJCOThDMEVFNURFMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxOERBMTRGRTBFMUUxMUUzODUwMkJCOThDMEVFNURFMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjE4REExNEZCMEUxRTExRTM4NTAyQkI5OEMwRUU1REUwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjE4REExNEZDMEUxRTExRTM4NTAyQkI5OEMwRUU1REUwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+EwrlwAAAAA5JREFUeNpiMDU0BAgwAAE2AJgB9BnaAAAAAElFTkSuQmCC&quot;) 0% 50% / 300px 1px repeat-y scroll padding-box border-box rgba(0, 0, 0, 0); height: 9797px; width: 1519px;"></div></html>

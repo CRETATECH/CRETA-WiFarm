@@ -1,0 +1,103 @@
+/*******************************************************************************
+  * @filename   : gpio.c
+  * @author     : HgN
+  * @last update: July 19th, 2017
+  */
+/******************************************************************************/
+
+/******************************************************************************/
+/* REVISION HISTORY */
+// March 17: Initialization.
+// July 19: Update Project, clean file
+/******************************************************************************/
+
+/******************************************************************************/
+/* INCLUDE */
+/******************************************************************************/
+#include "gpio.h"
+#include <stdbool.h>
+#include <stdlib.h>
+
+/******************************************************************************/
+/* LOCAL TYPEDEFS */
+/******************************************************************************/
+
+/******************************************************************************/
+/* LOCAL DEFINES */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PUBLIC VARIABLES */
+/******************************************************************************/
+
+/******************************************************************************/
+/* LOCAL FUNCTION PROTOTYPES */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PUBLIC FUNCTIONS */
+/******************************************************************************/
+/**
+ * @brief To init gpio pin
+ * @param pPort
+ * @param pPin
+ * @param pMode
+ */
+void gpioPinMode(uint16_t pPort, uint8_t pPin, uint8_t pMode)
+{
+    GPIO_TypeDef *Port;
+    Port = (GPIO_TypeDef*)pPort;
+    GPIO_Init(Port, pPin, pMode);
+}
+
+/**
+ * @brief To write 1 byte to a port
+ * @param pPort
+ * @param pPortVal
+ */
+void gpioWritePort(uint16_t pPort, uint8_t pPortVal)
+{
+    GPIO_TypeDef *GPIOx;
+    GPIOx = (GPIO_TypeDef*)pPort;
+    GPIOx->ODR = pPortVal;
+}
+
+/**
+ * @brief To write a pin high/low
+ * @param pPort
+ * @param pPin
+ * @param pPinVal
+ */
+void gpioWritePin(uint16_t pPort, uint8_t pPin, uint8_t pPinVal)
+{
+    GPIO_TypeDef *GPIOx;
+    GPIOx = (GPIO_TypeDef*)pPort;
+    if (pPinVal == GPIO_HIGH)
+        GPIOx->ODR |= (uint8_t)pPin;
+    else GPIOx->ODR &= (uint8_t)(~pPin);
+}
+
+
+/**
+ * @brief To read value of a gpio input pin
+ * @param pPort
+ * @param pPin
+ * @ret
+ *      GPIO_HIGH
+ *      GPIO_LOW
+ */
+uint8_t gpioReadPin(uint16_t pPort, uint8_t pPin)
+{
+    GPIO_TypeDef *GPIOx;
+    GPIOx = (GPIO_TypeDef*)pPort;
+    if (((BitStatus)(GPIOx->IDR & (uint8_t)pPin)) == RESET)
+        return GPIO_LOW;
+    else return GPIO_HIGH;
+}
+/******************************************************************************/
+/* LOCAL FUNCTIONS */
+/******************************************************************************/
+
+/******************************************************************************/
+/* END OF FILE */
+/******************************************************************************/

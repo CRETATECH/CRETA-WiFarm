@@ -1,0 +1,44 @@
+int Delay_s(uint32_t time);    //delay 1/2 so time truyen vao (vidu truyen 2 thi delay 1s)
+void blinky();                 //bkink chu ky 1s 
+void gpioInit();               //
+void ledOff();                 // off led
+void ledOn();                  // on led
+void relay_1();                // mo relay 1s roi dong relay cho 1s roi thoat ham
+void relay_2();
+void buzzer();                 // chuong keu 1s roi tat cho 1s roi thoat ham
+int button_1Check();           // tra ve 1 neu k nhan va 0 neu nhan
+int button_2Check();
+int sw_1Check();               // neu button duoc nhan thi cho 0.5s bat led 0.5s sau do tat 
+				//roi cho 0.5s sau do thoat ham
+int sw_2Check();
+
+
+int writeDS1307(uint8_t data);  // truyen 1 byte qua thanh ghi year cua DS1307
+				// tra ve 1 neu thanh cong, 0 neu that bai
+int readDS1307(uint8_t data);   // tuong tu nhung danh cho doc ve
+
+main()
+{
+	khoi tao clock;
+	init;
+/************** Start Test ************************/
+    
+    /************** Led ************************/
+	ledOff();
+        ledOn();
+        Delay_s(1); //  0.5s
+        ledOff();
+        Delay_s(1); // 0.5s
+   /************** button ************************/	
+	toi da thoi gian cho 5s se thoat ham neu k duoc nhan.
+	neu duoc nhan: cho 0.5s roi sang led 0.5s roi tat led, cho 0.5s roi thoat.
+      
+       tuong tu button 2
+ /************** I2C ************************/
+ neu thanh cong thi led nhan 4 lan moi lan cach nhau 1s moi lan led sang 0.5s
+ neu khong thanh cong thi k du 4 lan led nhay
+/************** relay ************************/
+relay mo khoa 1s roi dong khoa cho 1s thi qua buzzer
+    /************** buzzer ************************/
+keu 1s
+}
